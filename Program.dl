@@ -1,0 +1,265 @@
+% GENERATED combined independent-validation projection.
+% Composition: 93 Core + 7 LML + 97 OntoUML profile + 64 diagnostic-ware = 261 clauses/facts.
+% Authority remains the Core/profile/ware FHAS content and locked Core/LML projections.
+
+Action(?X) :- hasLinguisticType(?X, Action).
+Argument(?X) :- hasLinguisticType(?X, Argument).
+Artifact(?X) :- hasLinguisticType(?X, Artifact).
+Atom(?X) :- hasLinguisticType(?X, Atom).
+Attribute(?X) :- hasLinguisticType(?X, Attribute).
+compoundInner(?I, ?A) :- Attribute(?I), hasCustodian(?I, ?A), Attribute(?A).
+compoundParent(?A) :- Attribute(?A), Attribute(?I), hasCustodian(?I, ?A).
+BehaviouralOrdium(?X) :- Parameter(?X).
+BehaviouralOrdium(?X) :- Argument(?X).
+BehaviouralOrdium(?X) :- Atom(?X).
+BehaviouralOrdium(?X) :- Operation(?X).
+BehaviouralOrdium(?X) :- Invocation(?X).
+BehaviouralOrdium(?X) :- Action(?X).
+Categorisation(?X) :- hasLinguisticType(?X, Categorisation).
+categorisationGeneral(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, true), hasRelatum(?I, ?X).
+violation(?C, categorisationMissingGeneral) :- Categorisation(?C), not hasGeneralSide(?C).
+violation(?C, categorisationMissingSpecial) :- Categorisation(?C), not hasSpecialSide(?C).
+categorisationSpecial(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, false), hasRelatum(?I, ?X).
+Clabject(?X) :- Entity(?X).
+Clabject(?X) :- Relationship(?X).
+DataType(?X) :- hasLinguisticType(?X, DataType).
+DataValue(?X) :- hasLinguisticType(?X, DataValue).
+violation(?V, dataValueDatatypeSourceMissingViolation) :- DataValue(?V), hasCustodian(?V, ?C), not DataType(?C), not hasOfDataType(?V).
+datatypeByCustodian(?V, ?T) :- DataValue(?V), hasCustodian(?V, ?T), DataType(?T).
+datatypeByProperty(?V, ?T) :- DataValue(?V), ofDataType(?V, ?T).
+tupleValueComponent(?V) :- DataValue(?V), hasCustodian(?V, ?W), DataValue(?W), hasOfDataType(?V).
+tupleValueOf(?V, ?T) :- DataValue(?V), ofDataType(?V, ?T), tupleSlot(?S), hasCustodian(?S, ?T).
+Entity(?X) :- hasLinguisticType(?X, Entity).
+ImmanentOrdium(?X) :- Clabject(?X).
+ImmanentOrdium(?X) :- Mediation(?X).
+ImmanentOrdium(?X) :- Categorisation(?X).
+ImmanentOrdium(?X) :- Moment(?X).
+Intercalation(?X) :- hasLinguisticType(?X, Intercalation).
+violation(?I, intercalationMissingRelatum) :- Intercalation(?I), hasCustodian(?I, ?C), Categorisation(?C), not hasRelatumPresent(?I).
+Invocation(?X) :- hasLinguisticType(?X, Invocation).
+Literal(?X) :- hasLinguisticType(?X, Literal).
+Marker(?X) :- hasLinguisticType(?X, Marker).
+auxiliaryFor(?A, ?X) :- Marker(?M), hasCustodian(?M, ?A), hasTag(?M, WardRole.auxiliary), refersTo(?M, ?X).
+auxiliaryWard(?X, ?A) :- Marker(?A), hasCustodian(?A, ?X), hasTag(?A, WardRole.auxiliary).
+markedRef(?X, ?Tag, ?Target) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Tag), refersTo(?M, ?Target).
+marked(?X, ?Tag) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Tag).
+Mediation(?X) :- Participation(?X).
+Mediation(?X) :- Intercalation(?X).
+Method(?X) :- hasLinguisticType(?X, Method).
+Moment(?X) :- Method(?X).
+Moment(?X) :- Attribute(?X).
+Operation(?X) :- hasLinguisticType(?X, Operation).
+Parameter(?X) :- hasLinguisticType(?X, Parameter).
+Participation(?X) :- hasLinguisticType(?X, Participation).
+violation(?P, lowerBoundAtMostUpperBound) :- Participation(?P), hasLowerBound(?P, ?L), hasUpperBound(?P, ?U), ?U != Unlimited, ?L > ?U.
+violation(?P, mediationParticipationMissingRelatum) :- Participation(?P), hasCustodian(?P, ?R), Relationship(?R), not hasRelatumPresent(?P).
+wellFormed(?P, participationMayInduceAccessPath) :- Participation(?P), isNavigableTo(?P, true).
+violation(?P, slotParticipationHasRelatum) :- Participation(?P), hasCustodian(?P, ?E), Entity(?E), hasRelatumPresent(?P).
+Relationship(?X) :- hasLinguisticType(?X, Relationship).
+TranscendentOrdium(?X) :- Literal(?X).
+TranscendentOrdium(?X) :- DataValue(?X).
+TranscendentOrdium(?X) :- DataType(?X).
+TranscendentOrdium(?X) :- Artifact(?X).
+TranscendentOrdium(?X) :- Marker(?X).
+Ordium(?X) :- hasLinguisticType(?X, Ordium).
+Ordium(?X) :- ImmanentOrdium(?X).
+Ordium(?X) :- TranscendentOrdium(?X).
+Ordium(?X) :- BehaviouralOrdium(?X).
+ancestor(?X, ?A) :- hasCustodian(?X, ?A).
+ancestor(?X, ?A) :- hasCustodian(?X, ?M), ancestor(?M, ?A).
+chainHead(?W, ?O) :- orderedWard(?W, ?O), not followsSomething(?W).
+chained(?W, ?O) :- positionOf(?W, ?O, _).
+componentAtPosition(?V, ?N) :- tupleValueComponent(?C), positionOf(?C, ?V, ?N).
+violation(?A, compoundDurabilityUnequal) :- compoundInner(?I, ?A), hasDurability(?I, ?DI), hasDurability(?A, ?DA), ?DI != ?DA.
+violation(?A, compoundParentHasDataType) :- compoundParent(?A), hasDataType(?A, _).
+violation(?A, compoundParentHasValue) :- compoundParent(?A), hasValue(?A, _).
+violation(?A, compoundParentMutabilityNonZero) :- compoundParent(?A), hasMutability(?A, ?M), ?M != 0.
+violation(?X, custodianCycle) :- ancestor(?X, ?X), ?X != Ordium.
+violation(?T, dtWardHomogeneityViolation) :- tupleSlot(?S), hasCustodian(?S, ?T), enumerationLiteral(?L), hasCustodian(?L, ?T).
+enumerationLiteral(?V) :- datatypeByCustodian(?V, _), not hasOfDataType(?V).
+followsSomething(?W) :- follows(?W, _).
+hasGeneralSide(?C) :- categorisationGeneral(?C, _).
+hasOfDataType(?V) :- ofDataType(?V, _).
+hasRelatumPresent(?M) :- hasRelatum(?M, _).
+hasSpecialSide(?C) :- categorisationSpecial(?C, _).
+orderedWard(?W, ?T) :- tupleSlot(?W), hasCustodian(?W, ?T).
+orderedWard(?W, ?V) :- tupleValueComponent(?W), hasCustodian(?W, ?V).
+positionOf(?W, ?O, 1) :- chainHead(?W, ?O).
+positionOf(?W, ?O, ?N) :- positionOf(?P, ?O, ?M), orderedWard(?W, ?O), follows(?W, ?P), ?N = ?M + 1.
+violation(?X, singleCustodian) :- hasCustodian(?X, ?C1), hasCustodian(?X, ?C2), ?C1 != ?C2.
+slotAtPosition(?T, ?N) :- tupleSlot(?S), positionOf(?S, ?T, ?N).
+violation(?V, tupleArityMismatch) :- tupleValueOf(?V, ?T), componentAtPosition(?V, ?N), not slotAtPosition(?T, ?N).
+violation(?V, tupleArityMismatch) :- tupleValueOf(?V, ?T), slotAtPosition(?T, ?N), not componentAtPosition(?V, ?N).
+violation(?O, tupleOrderBranch) :- orderedWard(?W1, ?O), orderedWard(?W2, ?O), ?W1 != ?W2, orderedWard(?P, ?O), follows(?W1, ?P), follows(?W2, ?P).
+violation(?O, tupleOrderMultipleHeads) :- chainHead(?W1, ?O), chainHead(?W2, ?O), ?W1 != ?W2.
+violation(?O, tupleOrderUnchained) :- orderedWard(?W, ?O), not chained(?W, ?O).
+violation(?V, tuplePositionalTypeMismatch) :- tupleValueOf(?V, ?T), tupleValueComponent(?C), positionOf(?C, ?V, ?N), ofDataType(?C, ?DC), tupleSlot(?S), positionOf(?S, ?T, ?N), ofDataType(?S, ?DS), ?DC != ?DS.
+tupleSlot(?V) :- datatypeByCustodian(?V, _), datatypeByProperty(?V, _).
+violation(?C, categorisationManyToMany) :- manyGenerals(?C), manySpecials(?C).
+violation(?X, declaredTypeSingleValued) :- hasDeclaredType(?X, ?T1), hasDeclaredType(?X, ?T2), ?T1 != ?T2.
+effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P).
+effectivePotency(?X, 0) :- Clabject(?X), not hasPotency(?X, _).
+manyGenerals(?C) :- categorisationGeneral(?C, ?X), categorisationGeneral(?C, ?Y), ?X != ?Y.
+manySpecials(?C) :- categorisationSpecial(?C, ?X), categorisationSpecial(?C, ?Y), ?X != ?Y.
+violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1.
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.abstract).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.kind).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.subkind).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.phase).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.role).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.collective).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.quantity).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.relator).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.category).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.phaseMixin).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.roleMixin).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.mixin).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.mode).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.quality).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.datatype).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.enumeration).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.event).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.situation).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.historicalRole).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.historicalRoleMixin).
+classStereotype(Ordium.Profile.OntoUML.ClassStereotype.type).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.kind).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.subkind).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.phase).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.role).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.collective).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.quantity).
+sortal(Ordium.Profile.OntoUML.ClassStereotype.relator).
+nonSortal(Ordium.Profile.OntoUML.ClassStereotype.category).
+nonSortal(Ordium.Profile.OntoUML.ClassStereotype.phaseMixin).
+nonSortal(Ordium.Profile.OntoUML.ClassStereotype.roleMixin).
+nonSortal(Ordium.Profile.OntoUML.ClassStereotype.mixin).
+aspect(Ordium.Profile.OntoUML.ClassStereotype.mode).
+aspect(Ordium.Profile.OntoUML.ClassStereotype.quality).
+identityProvider(Ordium.Profile.OntoUML.ClassStereotype.kind).
+identityProvider(Ordium.Profile.OntoUML.ClassStereotype.collective).
+identityProvider(Ordium.Profile.OntoUML.ClassStereotype.quantity).
+identityProvider(Ordium.Profile.OntoUML.ClassStereotype.relator).
+rigidSortal(Ordium.Profile.OntoUML.ClassStereotype.kind).
+rigidSortal(Ordium.Profile.OntoUML.ClassStereotype.subkind).
+rigidSortal(Ordium.Profile.OntoUML.ClassStereotype.collective).
+rigidSortal(Ordium.Profile.OntoUML.ClassStereotype.quantity).
+rigidSortal(Ordium.Profile.OntoUML.ClassStereotype.relator).
+antiRigidSortal(Ordium.Profile.OntoUML.ClassStereotype.phase).
+antiRigidSortal(Ordium.Profile.OntoUML.ClassStereotype.role).
+rigidNonSortal(Ordium.Profile.OntoUML.ClassStereotype.category).
+antiRigidNonSortal(Ordium.Profile.OntoUML.ClassStereotype.phaseMixin).
+antiRigidNonSortal(Ordium.Profile.OntoUML.ClassStereotype.roleMixin).
+semiRigidNonSortal(Ordium.Profile.OntoUML.ClassStereotype.mixin).
+dataTypeLike(Ordium.Profile.OntoUML.ClassStereotype.datatype).
+dataTypeLike(Ordium.Profile.OntoUML.ClassStereotype.enumeration).
+eventType(Ordium.Profile.OntoUML.ClassStereotype.event).
+situationType(Ordium.Profile.OntoUML.ClassStereotype.situation).
+historicalType(Ordium.Profile.OntoUML.ClassStereotype.historicalRole).
+historicalType(Ordium.Profile.OntoUML.ClassStereotype.historicalRoleMixin).
+higherOrderType(Ordium.Profile.OntoUML.ClassStereotype.type).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.formal).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.material).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.mediation).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.characterization).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.derivation).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.structuration).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.componentOf).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.containment).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.memberOf).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.subCollectionOf).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.subQuantityOf).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.comparative).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.externalDependence).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.historicalDependence).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.instantiation).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.participation).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.participational).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.bringsAbout).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.creation).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.termination).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.manifestation).
+relationStereotype(Ordium.Profile.OntoUML.RelationStereotype.triggers).
+dependencyRelation(Ordium.Profile.OntoUML.RelationStereotype.externalDependence).
+dependencyRelation(Ordium.Profile.OntoUML.RelationStereotype.historicalDependence).
+dependencyRelation(Ordium.Profile.OntoUML.RelationStereotype.mediation).
+dependencyRelation(Ordium.Profile.OntoUML.RelationStereotype.characterization).
+partWholeRelation(Ordium.Profile.OntoUML.RelationStereotype.componentOf).
+partWholeRelation(Ordium.Profile.OntoUML.RelationStereotype.containment).
+partWholeRelation(Ordium.Profile.OntoUML.RelationStereotype.memberOf).
+partWholeRelation(Ordium.Profile.OntoUML.RelationStereotype.subCollectionOf).
+partWholeRelation(Ordium.Profile.OntoUML.RelationStereotype.subQuantityOf).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.participation).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.participational).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.bringsAbout).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.creation).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.termination).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.manifestation).
+eventRelation(Ordium.Profile.OntoUML.RelationStereotype.triggers).
+relatorRelation(Ordium.Profile.OntoUML.RelationStereotype.material).
+relatorRelation(Ordium.Profile.OntoUML.RelationStereotype.mediation).
+relatorRelation(Ordium.Profile.OntoUML.RelationStereotype.derivation).
+forbiddenKindAncestorTag(Ordium.Profile.OntoUML.ClassStereotype.mode).
+forbiddenKindAncestorTag(Ordium.Profile.OntoUML.ClassStereotype.quality).
+forbiddenKindAncestorTag(Ordium.Profile.OntoUML.ClassStereotype.roleMixin).
+specialises(?Sub, ?Base) :- categorisationGeneral(?C, ?Base), categorisationSpecial(?C, ?Sub).
+specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Base).
+specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Mid), specialisesPlus(?Mid, ?Base).
+subtypeOrSame(?X, ?X) :- Clabject(?X).
+subtypeOrSame(?Sub, ?Base) :- specialisesPlus(?Sub, ?Base).
+iof(?X, ?T) :- hasDeclaredType(?X, ?T).
+iof(?X, ?T) :- markedRef(?X, Ordium.Profile.OntoUML.RelationStereotype.instantiation, ?T).
+iofPlus(?X, ?T) :- iof(?X, ?T).
+iofPlus(?X, ?Super) :- iof(?X, ?T), specialisesPlus(?T, ?Super).
+err_non_adjacent_iof(?X, ?T, ?PX, ?PT) :- iof(?X, ?T), effectivePotency(?X, ?PX), effectivePotency(?T, ?PT), ?PT != ?PX + 1.
+err_cross_potency_specialization(?Sub, ?Base, ?PS, ?PB) :- specialises(?Sub, ?Base), effectivePotency(?Sub, ?PS), effectivePotency(?Base, ?PB), ?PS != ?PB.
+ontoKind(?T) :- marked(?T, Ordium.Profile.OntoUML.ClassStereotype.kind).
+ontoRelator(?T) :- marked(?T, Ordium.Profile.OntoUML.ClassStereotype.relator).
+identityProvider(?T) :- marked(?T, ?Tag), identityProvider(?Tag).
+sortal(?T) :- marked(?T, ?Tag), sortal(?Tag).
+mixinType(?T) :- marked(?T, ?Tag), nonSortal(?Tag), ?Tag != Ordium.Profile.OntoUML.ClassStereotype.phaseMixin.
+modeType(?T) :- marked(?T, Ordium.Profile.OntoUML.ClassStereotype.mode).
+err_kind_bad_ancestor(?Kind, ?Ancestor, ?Tag) :- ontoKind(?Kind), specialisesPlus(?Kind, ?Ancestor), marked(?Ancestor, ?Tag), forbiddenKindAncestorTag(?Tag).
+err_kind_bad_descendant(?Kind, ?Descendant, ?Tag) :- ontoKind(?Kind), specialisesPlus(?Descendant, ?Kind), marked(?Descendant, ?Tag), forbiddenKindDescendantTag(?Tag).
+endType(?R, ?P, ?T) :- Relationship(?R), Participation(?P), hasCustodian(?P, ?R), hasRelatum(?P, ?T).
+relationEndPair(?R, ?End1, ?End2) :- endType(?R, ?P1, ?End1), endType(?R, ?P2, ?End2), ?P1 != ?P2.
+coSpecializedIn(?C, ?A, ?B) :- categorisationSpecial(?C, ?A), categorisationSpecial(?C, ?B), ?A != ?B.
+explicitlyDisjoint(?A, ?B) :- Categorisation(?C), isDisjoint(?C, true), coSpecializedIn(?C, ?A, ?B).
+hasIdentityProvider(?T, ?K) :- identityProvider(?K), subtypeOrSame(?T, ?K).
+sameIdentityProvider(?A, ?B, ?K) :- hasIdentityProvider(?A, ?K), hasIdentityProvider(?B, ?K).
+commonSupertype(?A, ?B, ?S) :- specialisesPlus(?A, ?S), specialisesPlus(?B, ?S), ?A != ?B.
+binOverCase(?Source, ?Target, ?Source, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.equalTypes) :- Clabject(?Source), Clabject(?Target), ?Source = ?Target.
+binOverCase(?Source, ?Target, ?Target, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.sourceSubtypeTarget) :- specialisesPlus(?Source, ?Target).
+binOverCase(?Source, ?Target, ?Source, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.targetSubtypeSource) :- specialisesPlus(?Target, ?Source).
+binOverCase(?Source, ?Target, ?K, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.commonIdentityProvider) :- sortal(?Source), sortal(?Target), ?Source != ?Target, sameIdentityProvider(?Source, ?Target, ?K), not explicitlyDisjoint(?Source, ?Target).
+binOverCase(?Source, ?Target, ?S, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.commonRelatorSupertype) :- ontoRelator(?Source), ontoRelator(?Target), ?Source != ?Target, commonSupertype(?Source, ?Target, ?S), not explicitlyDisjoint(?Source, ?Target).
+binOverCase(?Source, ?Target, ?S, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.commonModeSupertype) :- modeType(?Source), modeType(?Target), ?Source != ?Target, commonSupertype(?Source, ?Target, ?S), not explicitlyDisjoint(?Source, ?Target).
+binOverCase(?Source, ?Target, ?S, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.mixinsCommonSortal) :- mixinType(?Source), mixinType(?Target), ?Source != ?Target, sortal(?S), specialisesPlus(?S, ?Source), specialisesPlus(?S, ?Target).
+hasSortalSubtype(?M) :- sortal(?S), specialisesPlus(?S, ?M).
+binOverCase(?Source, ?Target, ?S, Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.mixinsCommonMixinSupertype) :- mixinType(?Source), mixinType(?Target), ?Source != ?Target, mixinType(?S), specialisesPlus(?Source, ?S), specialisesPlus(?Target, ?S), not hasSortalSubtype(?Source), not hasSortalSubtype(?Target).
+warn_bin_over_case(?R, ?End1, ?End2, ?Support, ?Reason) :- relationEndPair(?R, ?End1, ?End2), binOverCase(?End1, ?End2, ?Support, ?Reason).
+warn_bin_over_witness(?R, ?End1, ?End2, ?X) :- warn_bin_over_case(?R, ?End1, ?End2, _, _), iofPlus(?X, ?End1), iofPlus(?X, ?End2).
+partitions(?Partition, ?Base) :- markedRef(?Partition, Ordium.Profile.MLT.PowertypeRelation.partitions, ?Base).
+powertypeOf(?Powertype, ?Base) :- markedRef(?Powertype, Ordium.Profile.MLT.PowertypeRelation.powertypeOf, ?Base).
+categorizes(?Categorizer, ?Base) :- markedRef(?Categorizer, Ordium.Profile.MLT.PowertypeRelation.categorizes, ?Base).
+categorizes(?Categorizer, ?Base) :- partitions(?Categorizer, ?Base).
+higherOrderClassifier(?Classifier, ?HBase, Ordium.Profile.MLT.HigherOrderKind.partition) :- partitions(?Classifier, ?HBase).
+higherOrderClassifier(?Classifier, ?HBase, Ordium.Profile.MLT.HigherOrderKind.powertype) :- powertypeOf(?Classifier, ?HBase).
+higherOrderClassifier(?Classifier, ?HBase, Ordium.Profile.MLT.HigherOrderKind.categorizer) :- categorizes(?Classifier, ?HBase).
+partitionMember(?Partition, ?Member) :- partitions(?Partition, ?Base), iof(?Member, ?Partition), specialisesPlus(?Member, ?Base).
+baseIndividual(?X, ?Base) :- effectivePotency(?X, 0), iofPlus(?X, ?Base).
+coveredBy(?Partition, ?X) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), partitionBranch(?Partition, ?Member), iofPlus(?X, ?Member).
+err_partition_bad_member(?Partition, ?Base, ?Member) :- partitions(?Partition, ?Base), iof(?Member, ?Partition), not specialisesPlus(?Member, ?Base).
+err_partition_missing(?Partition, ?Base, ?X) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), not coveredBy(?Partition, ?X).
+err_partition_overlap(?Partition, ?X, ?M1, ?M2) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, iofPlus(?X, ?M1), iofPlus(?X, ?M2).
+err_partition_subtype_overlap(?Partition, ?BadType, ?M1, ?M2) :- partitions(?Partition, ?Base), partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, specialisesPlus(?BadType, ?M1), specialisesPlus(?BadType, ?M2).
+err_partition_specialization(?P1, ?P2, ?Base) :- partitions(?P1, ?Base), partitions(?P2, ?Base), ?P1 != ?P2, specialisesPlus(?P1, ?P2).
+err_partition_specialization_refined_base(?P1, ?P2, ?Base1, ?Base2) :- partitions(?P1, ?Base1), partitions(?P2, ?Base2), ?P1 != ?P2, ?Base1 != ?Base2, specialisesPlus(?P1, ?P2), specialisesPlus(?Base1, ?Base2).
+err_partition_specialization_refined_base(?P1, ?P2, ?Base1, ?Base2) :- partitions(?P1, ?Base1), partitions(?P2, ?Base2), ?P1 != ?P2, ?Base1 != ?Base2, specialisesPlus(?P1, ?P2), specialisesPlus(?Base2, ?Base1).
+err_classifier_bad_potency(?Classifier, ?HBase, ?HKind, ?PC, ?PB) :- higherOrderClassifier(?Classifier, ?HBase, ?HKind), effectivePotency(?Classifier, ?PC), effectivePotency(?HBase, ?PB), ?PC != ?PB + 1.
+err_categorizer_bad_member(?Categorizer, ?Base, ?Member) :- categorizes(?Categorizer, ?Base), iof(?Member, ?Categorizer), not specialisesPlus(?Member, ?Base).
+err_powertype_bad_member(?Powertype, ?Base, ?Member) :- powertypeOf(?Powertype, ?Base), iof(?Member, ?Powertype), not subtypeOrSame(?Member, ?Base).
+forbiddenKindAncestorTag(?Tag) :- sortal(?Tag).
+forbiddenKindDescendantTag(?Tag) :- nonSortal(?Tag), ?Tag != Ordium.Profile.OntoUML.ClassStereotype.phaseMixin.
+nestedPartitionMember(?Partition, ?Member) :- partitionMember(?Partition, ?Member), partitionMember(?Partition, ?SuperMember), ?Member != ?SuperMember, specialisesPlus(?Member, ?SuperMember).
+partitionBranch(?Partition, ?Member) :- partitionMember(?Partition, ?Member), not nestedPartitionMember(?Partition, ?Member).
