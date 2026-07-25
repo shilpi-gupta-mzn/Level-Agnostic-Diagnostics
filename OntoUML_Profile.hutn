@@ -1,5 +1,3 @@
-// PAMoLa OntoUML profile v1.0.0.
-// Family memberships are native bodyless ground facts; no dummy equality bodies are used.
 
 EN {hasName "OntoUML", hasFQN "Ordium.Profile.OntoUML", hasPID "profile:ontouml:v1.0.0", hasNote "PAMoLa OntoUML profile clade v1.0.0. Profile and OntoUML are Entities; only the Ordium Core instantiates OM directly. DataValue names are their default lexemes unless explicit Literal wards add alternatives.", hasCustodian Ordium.Profile, follows Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
   DT {hasName "ClassStereotype", hasFQN "Ordium.Profile.OntoUML.ClassStereotype", hasNote "OntoUML class stereotype values. The DataValue name is the default lexeme.",
