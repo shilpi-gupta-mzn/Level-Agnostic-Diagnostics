@@ -1,7 +1,3 @@
-% GENERATED combined independent-validation projection.
-% Composition: 93 Core + 7 LML + 97 OntoUML profile + 64 diagnostic-ware = 261 clauses/facts.
-% Authority remains the Core/profile/ware FHAS content and locked Core/LML projections.
-
 Action(?X) :- hasLinguisticType(?X, Action).
 Argument(?X) :- hasLinguisticType(?X, Argument).
 Artifact(?X) :- hasLinguisticType(?X, Artifact).
