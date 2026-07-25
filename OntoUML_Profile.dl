@@ -1,5 +1,3 @@
-% GENERATED projection of OntoUML_Profile_v1_0_0.fhas.
-% Authority: reified profile rule content; ground family memberships are bodyless facts.
 
 classStereotype(Ordium.Profile.OntoUML.ClassStereotype.abstract).
 classStereotype(Ordium.Profile.OntoUML.ClassStereotype.kind).
