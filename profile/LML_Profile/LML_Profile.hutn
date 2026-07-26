@@ -1,7 +1,3 @@
-// PAMoLa LML profile — FHAS/HUTN structural projection.
-// Extracted from Ordium.Profile.LML in the authoritative PAMoLa core seed.
-// For inspection/verification; do not attach a second copy to a kernel that already bootstraps LML.
-
 EN {hasName "LML", hasFQN "Ordium.Profile.LML", hasNote "Reference classification profile (Level-Agnostic Modelling Language). The rule ward contains the authoritative reified rule content; LML_Profile.dl is its generated textual projection.", hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
   EN {hasName "rule",
     AO {hasName "categorisationManyToMany", hasPredicate Ordium.Core.rule.violation,
