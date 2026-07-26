@@ -1,22 +1,3 @@
-%! ER 2026 violation-seeded example — fixture-specific minimal Nemo program
-%!
-% This single file contains:
-%   (i) all 408 facts of Violation_Seeded_Model,
-%  (ii) the required subset of PAMoLa core rules,
-% (iii) the required subset of LML rules,
-%  (iv) the required subset of OntoUML profile-family facts, and
-%   (v) the required case-specific semantic and diagnostic rules.
-%
-% Minimization criterion: exact preservation of all 17 raw findings of the full
-% 261-statement program on this one model. The 50 retained program statements
-% form an irreducible oracle-preserving slice: removing any one of them from this
-% slice changes at least one exported diagnostic relation. It is NOT a reusable
-% replacement for the full core/profile/diagnostic program on other models.
-%
-% The MLT profile used by the paper is vocabulary-only. The operational meaning
-% of its powertype/categorizer/partition tags is therefore in section (v).
-
-
 % ============================================================================
 % i) Violation_Seeded_Model facts — 408
 % ============================================================================
