@@ -1,2 +1,2 @@
-worksFor,Researcher,Manager,BinOver.commonIdentityProvider
-worksFor,Manager,Researcher,BinOver.commonIdentityProvider
+worksFor,Researcher,Manager,Person,BinOver.commonIdentityProvider
+worksFor,Manager,Researcher,Person,BinOver.commonIdentityProvider
