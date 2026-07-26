@@ -1,0 +1,64 @@
+% GENERATED READABLE DATALOG PROJECTION OF MLT_Profile_v1_0_0.hutn
+%
+% Scope
+% -----
+% The authoritative MLT profile used by the ER 2026 artifact is a minimal
+% vocabulary profile. It defines six referenceable PAMoLa DataValue terms but
+% contains no independently executable reified rule clauses. Consequently, this
+% file is a structural Datalog projection for inspection; it is not an additional
+% rule layer and is not counted in the paper's 261-statement executable program.
+%
+% The operational interpretation used by the paper is defined in
+% ER2026_Diagnostics_v1_0_0.dl / Program.rls, in particular by the predicates
+% powertypeOf/2, categorizes/2, partitions/2, higherOrderClassifier/3, and
+% partitionMember/2.
+%
+% This is NOT a complete formalization of MLT, MLT*, ML2, or MLT-Telos.
+
+% Terms used to annotate relationships between a higher-order classifier and
+% the base type that it characterizes.
+powertypeRelationTerm(Ordium.Profile.MLT.PowertypeRelation.powertypeOf).
+powertypeRelationTerm(Ordium.Profile.MLT.PowertypeRelation.categorizes).
+powertypeRelationTerm(Ordium.Profile.MLT.PowertypeRelation.partitions).
+
+% Terms used by the diagnostic program to identify the kind of higher-order
+% classifier represented by a witness.
+higherOrderKindTerm(Ordium.Profile.MLT.HigherOrderKind.powertype).
+higherOrderKindTerm(Ordium.Profile.MLT.HigherOrderKind.categorizer).
+higherOrderKindTerm(Ordium.Profile.MLT.HigherOrderKind.partition).
+
+% For orientation, the active interpretation rules are located in the diagnostic
+% program and have the following shapes (shown here only as comments to avoid
+% defining the same rules twice when Program.rls is executed):
+%
+% partitions(?Partition, ?Base) :-
+%     markedRef(?Partition,
+%       Ordium.Profile.MLT.PowertypeRelation.partitions, ?Base).
+%
+% powertypeOf(?Powertype, ?Base) :-
+%     markedRef(?Powertype,
+%       Ordium.Profile.MLT.PowertypeRelation.powertypeOf, ?Base).
+%
+% categorizes(?Categorizer, ?Base) :-
+%     markedRef(?Categorizer,
+%       Ordium.Profile.MLT.PowertypeRelation.categorizes, ?Base).
+%
+% categorizes(?Categorizer, ?Base) :-
+%     partitions(?Categorizer, ?Base).
+%
+% higherOrderClassifier(?Classifier, ?Base,
+%     Ordium.Profile.MLT.HigherOrderKind.partition) :-
+%     partitions(?Classifier, ?Base).
+%
+% higherOrderClassifier(?Classifier, ?Base,
+%     Ordium.Profile.MLT.HigherOrderKind.powertype) :-
+%     powertypeOf(?Classifier, ?Base).
+%
+% higherOrderClassifier(?Classifier, ?Base,
+%     Ordium.Profile.MLT.HigherOrderKind.categorizer) :-
+%     categorizes(?Classifier, ?Base).
+%
+% partitionMember(?Partition, ?Member) :-
+%     partitions(?Partition, ?Base),
+%     iof(?Member, ?Partition),
+%     specialisesPlus(?Member, ?Base).
