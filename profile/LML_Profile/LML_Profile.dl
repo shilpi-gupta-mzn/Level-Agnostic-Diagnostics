@@ -1,0 +1,7 @@
+violation(?C, categorisationManyToMany) :- manyGenerals(?C), manySpecials(?C) .
+violation(?X, declaredTypeSingleValued) :- hasDeclaredType(?X, ?T1), hasDeclaredType(?X, ?T2), ?T1 != ?T2 .
+effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P) .
+effectivePotency(?X, 0) :- Clabject(?X), ~hasPotency(?X, _) .
+manyGenerals(?C) :- categorisationGeneral(?C, ?X), categorisationGeneral(?C, ?Y), ?X != ?Y .
+manySpecials(?C) :- categorisationSpecial(?C, ?X), categorisationSpecial(?C, ?Y), ?X != ?Y .
+violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1 .
