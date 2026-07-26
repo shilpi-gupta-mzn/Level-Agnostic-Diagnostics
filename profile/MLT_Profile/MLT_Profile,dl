@@ -1,0 +1,2 @@
+effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P) .
+violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1 .
