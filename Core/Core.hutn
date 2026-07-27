@@ -1,245 +1,307 @@
-EN {hasName Core, hasFQN "Ordium.Core",
-  hasNote "Minimal structural and executable core closure used by the ER 2026 reproduction artifact.",
-  hasCustodian Ordium, hasLinguisticType Ordium.Core.Entity,
-  OM {hasName Argument, hasNote "badge AG; rule-argument occurrence",
-      OM {hasName bindsTo, hasNote "type Ordium"},
-      OM {hasName fills, hasNote "type Parameter, optional"}
-    },
-  OM {hasName Atom, hasNote "badge AO; reified predicate occurrence",
-      OM {hasName hasPredicate, hasNote "type Ordium"},
-      OM {hasName isExplicit, hasNote "type Boolean, default true"},
-      OM {hasName isNegated, hasNote "type Boolean, default false"}
-    },
-  OM {hasName Parameter, hasNote "badge PM; rule parameter",
-      OM {hasName isExistential, hasNote "type Boolean, default false"},
-      OM {hasName hasType, hasNote "type Ordium"}
-    },
-  OM {hasName DataType, hasNote "badge DT; datatype declaration",
-      DT {hasName Boolean,
-              DV {hasName False,
-                LI {hasName falseLexeme, hasLexeme false}
-              },
-              DV {hasName True,
-                LI {hasName trueLexeme, hasLexeme true}
-              }
-            },
-      DT {hasName Integer,
-              DV {hasName One,
-                LI {hasName oneLexeme, hasLexeme 1}
-              },
-              DV {hasName Zero,
-                LI {hasName zeroLexeme, hasLexeme 0}
-              }
-            }
-    },
-  OM {hasName DataValue, hasNote "badge DV; referenceable datatype value",
-      OM {hasName ofDataType, hasNote "type DataType, optional — datatype source; XOR with datatype-by-custodian"}
-    },
-  OM {hasName Literal, hasNote "badge LI; lexical representation of a DataValue",
-      OM {hasName hasLexeme, hasNote "type Ordium — Ordium-typed so textual/binary/artefact lexemes are uniform; plain text written as a quoted string"}
-    },
-  OM {hasName Categorisation, hasNote "badge CA; reified categorisation structure",
-      OM {hasName isComplete, hasNote "type Boolean, default false"},
-      OM {hasName isDisjoint, hasNote "type Boolean, default false"},
-      EN {hasName rule,
-          AO {hasName Categorisation, hasPredicate Ordium.Core.Categorisation,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.Categorisation.X, fills Ordium.Core.Categorisation.rule.Categorisation.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.hasLinguisticType,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.Categorisation.X, fills Ordium.Core.Categorisation.rule.Categorisation.X},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.Categorisation.AO__1.AG__1, bindsTo Ordium.Core.Categorisation}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  },
-          AO {hasName categorisationGeneral, hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral},
-          AO {hasName categorisationGeneral__2, hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.C, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.C},
-                    AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.X, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.Categorisation,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.C, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.C}
-                    },
-                    AO {hasName AO__2, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__1, hasPredicate Ordium.Core.Intercalation,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I}
-                    },
-                    AO {hasName AO__3, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__2, hasPredicate Ordium.Core.hasCustodian,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__3.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.C, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.C}
-                    },
-                    AO {hasName AO__4, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__3, hasPredicate Ordium.Core.Intercalation.isGeneralisation,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__4.AG__1, bindsTo Ordium.Core.DataType.Boolean.True}
-                    },
-                    AO {hasName AO__5, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__4, hasPredicate Ordium.Core.Mediation.hasRelatum,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__5.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.X, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.X}
-                    },
-                    PM {hasName C, hasType Ordium},
-                    PM {hasName I, hasType Ordium},
-                    PM {hasName X, hasType Ordium}
-                  },
-          AO {hasName categorisationSpecial, hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial},
-          AO {hasName categorisationSpecial__2, hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.C, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.C},
-                    AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.X, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.Categorisation,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.C, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.C}
-                    },
-                    AO {hasName AO__2, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__1, hasPredicate Ordium.Core.Intercalation,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I}
-                    },
-                    AO {hasName AO__3, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__2, hasPredicate Ordium.Core.hasCustodian,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__3.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.C, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.C}
-                    },
-                    AO {hasName AO__4, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__3, hasPredicate Ordium.Core.Intercalation.isGeneralisation,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__4.AG__1, bindsTo Ordium.Core.DataType.Boolean.False}
-                    },
-                    AO {hasName AO__5, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__4, hasPredicate Ordium.Core.Mediation.hasRelatum,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I},
-                      AG {hasName AG__2, follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__5.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.X, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.X}
-                    },
-                    PM {hasName C, hasType Ordium},
-                    PM {hasName I, hasType Ordium},
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName Clabject, hasNote "abstract ontological classifier/instance carrier",
-      OM {hasName hasDeclaredType, hasNote "type Clabject, optional — absent = no declared ontological type; uninterpreted by the core, classification discipline is profile content"},
-      OM {hasName hasPotency, hasNote "type NonNegativeInteger, optional — uninterpreted by the core; classification profiles (e.g. Ordium.Profile.LML) give it meaning, LML reading an absent potency as 0"},
-      EN {hasName rule,
-          AO {hasName Clabject, hasPredicate Ordium.Core.Clabject,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Clabject.rule.Clabject.X, fills Ordium.Core.Clabject.rule.Clabject.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.Entity,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Clabject.rule.Clabject.X, fills Ordium.Core.Clabject.rule.Clabject.X}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName Entity, hasNote "badge EN; entity/clabject carrier",
-      EN {hasName rule,
-          AO {hasName Entity, hasPredicate Ordium.Core.Entity,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Entity.rule.Entity.X, fills Ordium.Core.Entity.rule.Entity.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.hasLinguisticType,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Entity.rule.Entity.X, fills Ordium.Core.Entity.rule.Entity.X},
-                      AG {hasName AG__2, follows Ordium.Core.Entity.rule.Entity.AO__1.AG__1, bindsTo Ordium.Core.Entity}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName Intercalation, hasNote "badge IC; categorisation endpoint",
-      OM {hasName isGeneralisation, hasNote "type Boolean, default false"},
-      EN {hasName rule,
-          AO {hasName Intercalation, hasPredicate Ordium.Core.Intercalation,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Intercalation.rule.Intercalation.X, fills Ordium.Core.Intercalation.rule.Intercalation.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.hasLinguisticType,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Intercalation.rule.Intercalation.X, fills Ordium.Core.Intercalation.rule.Intercalation.X},
-                      AG {hasName AG__2, follows Ordium.Core.Intercalation.rule.Intercalation.AO__1.AG__1, bindsTo Ordium.Core.Intercalation}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName Marker, hasNote "badge MK; profile annotation/reference",
-      OM {hasName hasTag, hasNote "type DataValue"},
-      OM {hasName refersTo, hasNote "type Ordium, optional"},
-      EN {hasName rule,
-          AO {hasName Marker, hasPredicate Ordium.Core.Marker,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.Marker.X, fills Ordium.Core.Marker.rule.Marker.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.hasLinguisticType,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.Marker.X, fills Ordium.Core.Marker.rule.Marker.X},
-                      AG {hasName AG__2, follows Ordium.Core.Marker.rule.Marker.AO__1.AG__1, bindsTo Ordium.Core.Marker}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  },
-          AO {hasName markedRef, hasPredicate Ordium.Core.Marker.rule.markedRef},
-          AO {hasName markedRef__2, hasPredicate Ordium.Core.Marker.rule.markedRef,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.X, fills Ordium.Core.Marker.rule.markedRef__2.X},
-                    AG {hasName AG__2, follows Ordium.Core.Marker.rule.markedRef__2.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.Tag, fills Ordium.Core.Marker.rule.markedRef__2.Tag},
-                    AG {hasName AG__3, follows Ordium.Core.Marker.rule.markedRef__2.AG__2, bindsTo Ordium.Core.Marker.rule.markedRef__2.Target, fills Ordium.Core.Marker.rule.markedRef__2.Target},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.Marker,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M}
-                    },
-                    AO {hasName AO__2, follows Ordium.Core.Marker.rule.markedRef__2.AO__1, hasPredicate Ordium.Core.hasCustodian,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M},
-                      AG {hasName AG__2, follows Ordium.Core.Marker.rule.markedRef__2.AO__2.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.X, fills Ordium.Core.Marker.rule.markedRef__2.X}
-                    },
-                    AO {hasName AO__3, follows Ordium.Core.Marker.rule.markedRef__2.AO__2, hasPredicate Ordium.Core.Marker.hasTag,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M},
-                      AG {hasName AG__2, follows Ordium.Core.Marker.rule.markedRef__2.AO__3.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.Tag, fills Ordium.Core.Marker.rule.markedRef__2.Tag}
-                    },
-                    AO {hasName AO__4, follows Ordium.Core.Marker.rule.markedRef__2.AO__3, hasPredicate Ordium.Core.Marker.refersTo,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M},
-                      AG {hasName AG__2, follows Ordium.Core.Marker.rule.markedRef__2.AO__4.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.Target, fills Ordium.Core.Marker.rule.markedRef__2.Target}
-                    },
-                    PM {hasName M, hasType Ordium},
-                    PM {hasName Tag, hasType Ordium},
-                    PM {hasName Target, hasType Ordium},
-                    PM {hasName X, hasType Ordium}
-                  },
-          AO {hasName marked, hasPredicate Ordium.Core.Marker.rule.marked},
-          AO {hasName marked__2, hasPredicate Ordium.Core.Marker.rule.marked,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.X, fills Ordium.Core.Marker.rule.marked__2.X},
-                    AG {hasName AG__2, follows Ordium.Core.Marker.rule.marked__2.AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.Tag, fills Ordium.Core.Marker.rule.marked__2.Tag},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.Marker,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.M, fills Ordium.Core.Marker.rule.marked__2.M}
-                    },
-                    AO {hasName AO__2, follows Ordium.Core.Marker.rule.marked__2.AO__1, hasPredicate Ordium.Core.hasCustodian,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.M, fills Ordium.Core.Marker.rule.marked__2.M},
-                      AG {hasName AG__2, follows Ordium.Core.Marker.rule.marked__2.AO__2.AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.X, fills Ordium.Core.Marker.rule.marked__2.X}
-                    },
-                    AO {hasName AO__3, follows Ordium.Core.Marker.rule.marked__2.AO__2, hasPredicate Ordium.Core.Marker.hasTag,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.M, fills Ordium.Core.Marker.rule.marked__2.M},
-                      AG {hasName AG__2, follows Ordium.Core.Marker.rule.marked__2.AO__3.AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.Tag, fills Ordium.Core.Marker.rule.marked__2.Tag}
-                    },
-                    PM {hasName M, hasType Ordium},
-                    PM {hasName Tag, hasType Ordium},
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName Mediation, hasNote "abstract endpoint-occurrence carrier",
-      OM {hasName hasRelatum, hasNote "type Ordium, optional — required for mediation participations/intercalations (custodian RE/CA, enforced by rule); absent by design on multi-attribute slot participations (custodian EN) — DR-006"}
-    },
-  OM {hasName Participation, hasNote "badge PA; relationship endpoint",
-      OM {hasName hasRoleName, hasNote "type String, default §"},
-      EN {hasName rule,
-          AO {hasName Participation, hasPredicate Ordium.Core.Participation,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Participation.rule.Participation.X, fills Ordium.Core.Participation.rule.Participation.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.hasLinguisticType,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Participation.rule.Participation.X, fills Ordium.Core.Participation.rule.Participation.X},
-                      AG {hasName AG__2, follows Ordium.Core.Participation.rule.Participation.AO__1.AG__1, bindsTo Ordium.Core.Participation}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName Relationship, hasNote "badge RE; relationship carrier",
-      OM {hasName hasAssociationName, hasNote "type String, default §"},
-      EN {hasName rule,
-          AO {hasName Relationship, hasPredicate Ordium.Core.Relationship,
-                    AG {hasName AG__1, bindsTo Ordium.Core.Relationship.rule.Relationship.X, fills Ordium.Core.Relationship.rule.Relationship.X},
-                    AO {hasName AO__1, hasPredicate Ordium.Core.hasLinguisticType,
-                      AG {hasName AG__1, bindsTo Ordium.Core.Relationship.rule.Relationship.X, fills Ordium.Core.Relationship.rule.Relationship.X},
-                      AG {hasName AG__2, follows Ordium.Core.Relationship.rule.Relationship.AO__1.AG__1, bindsTo Ordium.Core.Relationship}
-                    },
-                    PM {hasName X, hasType Ordium}
-                  }
-          }
-    },
-  OM {hasName follows, hasNote "type Ordium, optional — general-purpose sequencing pointer; NOT ward ordering; target unconstrained"},
-  OM {hasName hasCustodian, hasNote "type Ordium — custodian (locality/naming spine)"},
-  OM {hasName hasFQN, hasNote "type FQN, default <derived> — derived fully-qualified name"},
-  OM {hasName hasLinguisticType, hasNote "type Ordium — the fixed core category this ordium instantiates"},
-  OM {hasName hasName, hasNote "type Name, default <auto created> — local name"},
-  OM {hasName hasNote, hasNote "type String — documentation"},
-  OM {hasName hasPID, hasNote "type PID, default <auto created> — stable lifetime identity"},
-  EN {hasName rule,
-      AO {hasName minus, hasPredicate Ordium.Core.rule.minus},
-      AO {hasName neq, hasPredicate Ordium.Core.rule.neq},
-      AO {hasName plus, hasPredicate Ordium.Core.rule.plus},
-      AO {hasName violation, hasPredicate Ordium.Core.rule.violation}
+EN {hasName "Core", hasFQN "Ordium.Core", hasNote "Minimized PAMoLa core vocabulary and rules required by the ER diagnostic reproduction.", hasCustodian Ordium, hasLinguisticType Ordium.Core.Entity,
+  OM {hasName "Argument", hasNote "badge AG, supertype BehaviouralOrdium",
+    OM {hasName "bindsTo", hasNote "type Ordium"},
+    OM {hasName "fills", hasNote "type Parameter, optional"}
+  },
+  OM {hasName "Atom", hasNote "badge AO, supertype BehaviouralOrdium",
+    OM {hasName "hasPredicate", hasNote "type Ordium"},
+    OM {hasName "isExplicit", hasNote "type Boolean, default true"},
+    OM {hasName "isNegated", hasNote "type Boolean, default false"}
+  },
+  OM {hasName "Categorisation", hasNote "badge CA, supertype ImmanentOrdium",
+    OM {hasName "isComplete", hasNote "type Boolean, default false"},
+    OM {hasName "isDisjoint", hasNote "type Boolean, default false"},
+    EN {hasName "rule",
+      AO {hasName "Categorisation", hasPredicate Ordium.Core.Categorisation,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.Categorisation.X, fills Ordium.Core.Categorisation.rule.Categorisation.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.hasLinguisticType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.Categorisation.X, fills Ordium.Core.Categorisation.rule.Categorisation.X},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.Categorisation.AO__1.AG__1, bindsTo Ordium.Core.Categorisation}
+        },
+        PM {hasName "X", hasType Ordium}
+      },
+      AO {hasName "categorisationGeneral", hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral},
+      AO {hasName "categorisationGeneral__2", hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.C, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.C},
+        AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.X, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Categorisation,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.C, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.C}
+        },
+        AO {hasName "AO__2", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__1, hasPredicate Ordium.Core.Intercalation,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I}
+        },
+        AO {hasName "AO__3", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__2, hasPredicate Ordium.Core.hasCustodian,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__3.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.C, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.C}
+        },
+        AO {hasName "AO__4", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__3, hasPredicate Ordium.Core.Intercalation.isGeneralisation,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__4.AG__1, bindsTo Ordium.Core.DataType.Boolean.True}
+        },
+        AO {hasName "AO__5", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__4, hasPredicate Ordium.Core.Mediation.hasRelatum,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.I, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.I},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationGeneral__2.AO__5.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationGeneral__2.X, fills Ordium.Core.Categorisation.rule.categorisationGeneral__2.X}
+        },
+        PM {hasName "C", hasType Ordium},
+        PM {hasName "I", hasType Ordium},
+        PM {hasName "X", hasType Ordium}
+      },
+      AO {hasName "categorisationSpecial", hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial},
+      AO {hasName "categorisationSpecial__2", hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.C, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.C},
+        AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.X, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Categorisation,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.C, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.C}
+        },
+        AO {hasName "AO__2", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__1, hasPredicate Ordium.Core.Intercalation,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I}
+        },
+        AO {hasName "AO__3", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__2, hasPredicate Ordium.Core.hasCustodian,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__3.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.C, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.C}
+        },
+        AO {hasName "AO__4", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__3, hasPredicate Ordium.Core.Intercalation.isGeneralisation,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__4.AG__1, bindsTo Ordium.Core.DataType.Boolean.False}
+        },
+        AO {hasName "AO__5", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__4, hasPredicate Ordium.Core.Mediation.hasRelatum,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.I, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.I},
+          AG {hasName "AG__2", follows Ordium.Core.Categorisation.rule.categorisationSpecial__2.AO__5.AG__1, bindsTo Ordium.Core.Categorisation.rule.categorisationSpecial__2.X, fills Ordium.Core.Categorisation.rule.categorisationSpecial__2.X}
+        },
+        PM {hasName "C", hasType Ordium},
+        PM {hasName "I", hasType Ordium},
+        PM {hasName "X", hasType Ordium}
+      }
     }
+  },
+  OM {hasName "Clabject", hasNote "abstract, supertype ImmanentOrdium — identity-bearing, ontologically classifiable",
+    OM {hasName "hasDeclaredType", hasNote "type Clabject, optional — absent = no declared ontological type; uninterpreted by the core, classification discipline is profile content"},
+    OM {hasName "hasPotency", hasNote "type NonNegativeInteger, optional — uninterpreted by the core; classification profiles (e.g. Ordium.Profile.LML) give it meaning, LML reading an absent potency as 0"},
+    EN {hasName "rule",
+      AO {hasName "Clabject", hasPredicate Ordium.Core.Clabject,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Clabject.rule.Clabject.X, fills Ordium.Core.Clabject.rule.Clabject.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Entity,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Clabject.rule.Clabject.X, fills Ordium.Core.Clabject.rule.Clabject.X}
+        },
+        PM {hasName "X", hasType Ordium}
+      }
+    }
+  },
+  OM {hasName "DataValue", hasNote "badge DV, supertype TranscendentOrdium",
+    OM {hasName "ofDataType", hasNote "type DataType, optional — datatype source; XOR with datatype-by-custodian"}
+  },
+  OM {hasName "Entity", hasNote "badge EN, supertype Clabject",
+    EN {hasName "rule",
+      AO {hasName "Entity", hasPredicate Ordium.Core.Entity,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Entity.rule.Entity.X, fills Ordium.Core.Entity.rule.Entity.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.hasLinguisticType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Entity.rule.Entity.X, fills Ordium.Core.Entity.rule.Entity.X},
+          AG {hasName "AG__2", follows Ordium.Core.Entity.rule.Entity.AO__1.AG__1, bindsTo Ordium.Core.Entity}
+        },
+        PM {hasName "X", hasType Ordium}
+      }
+    }
+  },
+  OM {hasName "Intercalation", hasNote "badge IC, supertype Mediation",
+    OM {hasName "isGeneralisation", hasNote "type Boolean, default false"},
+    EN {hasName "rule",
+      AO {hasName "Intercalation", hasPredicate Ordium.Core.Intercalation,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Intercalation.rule.Intercalation.X, fills Ordium.Core.Intercalation.rule.Intercalation.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.hasLinguisticType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Intercalation.rule.Intercalation.X, fills Ordium.Core.Intercalation.rule.Intercalation.X},
+          AG {hasName "AG__2", follows Ordium.Core.Intercalation.rule.Intercalation.AO__1.AG__1, bindsTo Ordium.Core.Intercalation}
+        },
+        PM {hasName "X", hasType Ordium}
+      }
+    }
+  },
+  OM {hasName "Literal", hasNote "badge LI, supertype TranscendentOrdium",
+    OM {hasName "hasLexeme", hasNote "type Ordium — Ordium-typed so textual/binary/artefact lexemes are uniform; plain text written as a quoted string"}
+  },
+  OM {hasName "Marker", hasNote "badge MK, supertype TranscendentOrdium",
+    OM {hasName "hasTag", hasNote "type DataValue"},
+    OM {hasName "refersTo", hasNote "type Ordium, optional"},
+    EN {hasName "rule",
+      AO {hasName "Marker", hasPredicate Ordium.Core.Marker,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.Marker.X, fills Ordium.Core.Marker.rule.Marker.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.hasLinguisticType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.Marker.X, fills Ordium.Core.Marker.rule.Marker.X},
+          AG {hasName "AG__2", follows Ordium.Core.Marker.rule.Marker.AO__1.AG__1, bindsTo Ordium.Core.Marker}
+        },
+        PM {hasName "X", hasType Ordium}
+      },
+      AO {hasName "marked", hasPredicate Ordium.Core.Marker.rule.marked},
+      AO {hasName "markedRef", hasPredicate Ordium.Core.Marker.rule.markedRef},
+      AO {hasName "markedRef__2", hasPredicate Ordium.Core.Marker.rule.markedRef,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.markedRef__2.X, fills Ordium.Core.Marker.rule.markedRef__2.X},
+        AG {hasName "AG__2", follows Ordium.Core.Marker.rule.markedRef__2.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.Tag, fills Ordium.Core.Marker.rule.markedRef__2.Tag},
+        AG {hasName "AG__3", follows Ordium.Core.Marker.rule.markedRef__2.AG__2, bindsTo Ordium.Core.Marker.rule.markedRef__2.Target, fills Ordium.Core.Marker.rule.markedRef__2.Target},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Marker,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M}
+        },
+        AO {hasName "AO__2", follows Ordium.Core.Marker.rule.markedRef__2.AO__1, hasPredicate Ordium.Core.hasCustodian,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M},
+          AG {hasName "AG__2", follows Ordium.Core.Marker.rule.markedRef__2.AO__2.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.X, fills Ordium.Core.Marker.rule.markedRef__2.X}
+        },
+        AO {hasName "AO__3", follows Ordium.Core.Marker.rule.markedRef__2.AO__2, hasPredicate Ordium.Core.Marker.hasTag,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M},
+          AG {hasName "AG__2", follows Ordium.Core.Marker.rule.markedRef__2.AO__3.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.Tag, fills Ordium.Core.Marker.rule.markedRef__2.Tag}
+        },
+        AO {hasName "AO__4", follows Ordium.Core.Marker.rule.markedRef__2.AO__3, hasPredicate Ordium.Core.Marker.refersTo,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.markedRef__2.M, fills Ordium.Core.Marker.rule.markedRef__2.M},
+          AG {hasName "AG__2", follows Ordium.Core.Marker.rule.markedRef__2.AO__4.AG__1, bindsTo Ordium.Core.Marker.rule.markedRef__2.Target, fills Ordium.Core.Marker.rule.markedRef__2.Target}
+        },
+        PM {hasName "M", hasType Ordium},
+        PM {hasName "Tag", hasType Ordium},
+        PM {hasName "Target", hasType Ordium},
+        PM {hasName "X", hasType Ordium}
+      },
+      AO {hasName "marked__2", hasPredicate Ordium.Core.Marker.rule.marked,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.marked__2.X, fills Ordium.Core.Marker.rule.marked__2.X},
+        AG {hasName "AG__2", follows Ordium.Core.Marker.rule.marked__2.AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.Tag, fills Ordium.Core.Marker.rule.marked__2.Tag},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Marker,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.marked__2.M, fills Ordium.Core.Marker.rule.marked__2.M}
+        },
+        AO {hasName "AO__2", follows Ordium.Core.Marker.rule.marked__2.AO__1, hasPredicate Ordium.Core.hasCustodian,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.marked__2.M, fills Ordium.Core.Marker.rule.marked__2.M},
+          AG {hasName "AG__2", follows Ordium.Core.Marker.rule.marked__2.AO__2.AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.X, fills Ordium.Core.Marker.rule.marked__2.X}
+        },
+        AO {hasName "AO__3", follows Ordium.Core.Marker.rule.marked__2.AO__2, hasPredicate Ordium.Core.Marker.hasTag,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Marker.rule.marked__2.M, fills Ordium.Core.Marker.rule.marked__2.M},
+          AG {hasName "AG__2", follows Ordium.Core.Marker.rule.marked__2.AO__3.AG__1, bindsTo Ordium.Core.Marker.rule.marked__2.Tag, fills Ordium.Core.Marker.rule.marked__2.Tag}
+        },
+        PM {hasName "M", hasType Ordium},
+        PM {hasName "Tag", hasType Ordium},
+        PM {hasName "X", hasType Ordium}
+      }
+    }
+  },
+  OM {hasName "Mediation", hasNote "abstract, supertype ImmanentOrdium",
+    OM {hasName "hasRelatum", hasNote "type Ordium, optional — required for mediation participations/intercalations (custodian RE/CA, enforced by rule); absent by design on multi-attribute slot participations (custodian EN) — DR-006"}
+  },
+  OM {hasName "Parameter", hasNote "badge PM, supertype BehaviouralOrdium",
+    OM {hasName "isExistential", hasNote "type Boolean, default false"},
+    OM {hasName "hasType", hasNote "type Ordium"}
+  },
+  OM {hasName "Participation", hasNote "badge PA, supertype Mediation",
+    OM {hasName "hasRoleName", hasNote "type String, default §"},
+    EN {hasName "rule",
+      AO {hasName "Participation", hasPredicate Ordium.Core.Participation,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Participation.rule.Participation.X, fills Ordium.Core.Participation.rule.Participation.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.hasLinguisticType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Participation.rule.Participation.X, fills Ordium.Core.Participation.rule.Participation.X},
+          AG {hasName "AG__2", follows Ordium.Core.Participation.rule.Participation.AO__1.AG__1, bindsTo Ordium.Core.Participation}
+        },
+        PM {hasName "X", hasType Ordium}
+      }
+    }
+  },
+  OM {hasName "Relationship", hasNote "badge RE, supertype Clabject",
+    OM {hasName "hasAssociationName", hasNote "type String, default §"},
+    EN {hasName "rule",
+      AO {hasName "Relationship", hasPredicate Ordium.Core.Relationship,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.Relationship.X, fills Ordium.Core.Relationship.rule.Relationship.X},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.hasLinguisticType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.Relationship.X, fills Ordium.Core.Relationship.rule.Relationship.X},
+          AG {hasName "AG__2", follows Ordium.Core.Relationship.rule.Relationship.AO__1.AG__1, bindsTo Ordium.Core.Relationship}
+        },
+        PM {hasName "X", hasType Ordium}
+      },
+      AO {hasName "endType", hasPredicate Ordium.Core.Relationship.rule.endType},
+      AO {hasName "relationEndPair", hasPredicate Ordium.Core.Relationship.rule.relationEndPair},
+      AO {hasName "endType_rule", hasPredicate Ordium.Core.Relationship.rule.endType,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.endType_rule.R, fills Ordium.Core.Relationship.rule.endType_rule.R},
+        AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.endType_rule.P, fills Ordium.Core.Relationship.rule.endType_rule.P, follows Ordium.Core.Relationship.rule.endType_rule.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Core.Relationship.rule.endType_rule.T, fills Ordium.Core.Relationship.rule.endType_rule.T, follows Ordium.Core.Relationship.rule.endType_rule.AG__2},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Relationship,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.endType_rule.R, fills Ordium.Core.Relationship.rule.endType_rule.R}
+        },
+        AO {hasName "AO__2", hasPredicate Ordium.Core.Participation, follows Ordium.Core.Relationship.rule.endType_rule.AO__1,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.endType_rule.P, fills Ordium.Core.Relationship.rule.endType_rule.P}
+        },
+        AO {hasName "AO__3", hasPredicate Ordium.Core.hasCustodian, follows Ordium.Core.Relationship.rule.endType_rule.AO__2,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.endType_rule.P, fills Ordium.Core.Relationship.rule.endType_rule.P},
+          AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.endType_rule.R, fills Ordium.Core.Relationship.rule.endType_rule.R, follows Ordium.Core.Relationship.rule.endType_rule.AO__3.AG__1}
+        },
+        AO {hasName "AO__4", hasPredicate Ordium.Core.Mediation.hasRelatum, follows Ordium.Core.Relationship.rule.endType_rule.AO__3,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.endType_rule.P, fills Ordium.Core.Relationship.rule.endType_rule.P},
+          AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.endType_rule.T, fills Ordium.Core.Relationship.rule.endType_rule.T, follows Ordium.Core.Relationship.rule.endType_rule.AO__4.AG__1}
+        },
+        PM {hasName "P"},
+        PM {hasName "R"},
+        PM {hasName "T"}
+      },
+      AO {hasName "relationEndPair_rule", hasPredicate Ordium.Core.Relationship.rule.relationEndPair,
+        AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.R, fills Ordium.Core.Relationship.rule.relationEndPair_rule.R},
+        AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.End1, fills Ordium.Core.Relationship.rule.relationEndPair_rule.End1, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.End2, fills Ordium.Core.Relationship.rule.relationEndPair_rule.End2, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AG__2},
+        AO {hasName "AO__1", hasPredicate Ordium.Core.Relationship.rule.endType,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.R, fills Ordium.Core.Relationship.rule.relationEndPair_rule.R},
+          AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.P1, fills Ordium.Core.Relationship.rule.relationEndPair_rule.P1, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__1.AG__1},
+          AG {hasName "AG__3", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.End1, fills Ordium.Core.Relationship.rule.relationEndPair_rule.End1, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__1.AG__2}
+        },
+        AO {hasName "AO__2", hasPredicate Ordium.Core.Relationship.rule.endType, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__1,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.R, fills Ordium.Core.Relationship.rule.relationEndPair_rule.R},
+          AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.P2, fills Ordium.Core.Relationship.rule.relationEndPair_rule.P2, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__2.AG__1},
+          AG {hasName "AG__3", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.End2, fills Ordium.Core.Relationship.rule.relationEndPair_rule.End2, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__2.AG__2}
+        },
+        AO {hasName "AO__3", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__2,
+          AG {hasName "AG__1", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.P1, fills Ordium.Core.Relationship.rule.relationEndPair_rule.P1},
+          AG {hasName "AG__2", bindsTo Ordium.Core.Relationship.rule.relationEndPair_rule.P2, fills Ordium.Core.Relationship.rule.relationEndPair_rule.P2, follows Ordium.Core.Relationship.rule.relationEndPair_rule.AO__3.AG__1}
+        },
+        PM {hasName "End1"},
+        PM {hasName "End2"},
+        PM {hasName "P1"},
+        PM {hasName "P2"},
+        PM {hasName "R"}
+      }
+    }
+  },
+  OM {hasName "DataType", hasNote "badge DT, supertype TranscendentOrdium",
+    DT {hasName "Boolean",
+      DV {hasName "False",
+        LI {hasName "falseLexeme", hasLexeme false}
+      },
+      DV {hasName "True",
+        LI {hasName "trueLexeme", hasLexeme true}
+      }
+    },
+    DT {hasName "Integer",
+      DV {hasName "One",
+        LI {hasName "oneLexeme", hasLexeme 1}
+      },
+      DV {hasName "Zero",
+        LI {hasName "zeroLexeme", hasLexeme 0}
+      }
+    },
+    DT {hasName "NonNegativeInteger",
+      DV {hasName "One",
+        LI {hasName "oneLexeme", hasLexeme 1}
+      },
+      DV {hasName "Zero",
+        LI {hasName "zeroLexeme", hasLexeme 0}
+      }
+    },
+    DT {hasName "Name"},
+    DT {hasName "FQN"},
+    DT {hasName "PID"},
+    DT {hasName "String",
+      DV {hasName "EmptyString",
+        LI {hasName "emptyStringLexeme", hasLexeme ""}
+      }
+    }
+  },
+  OM {hasName "follows", hasNote "type Ordium, optional — general-purpose sequencing pointer; NOT ward ordering; target unconstrained"},
+  OM {hasName "hasCustodian", hasNote "type Ordium — custodian (locality/naming spine)"},
+  OM {hasName "hasFQN", hasNote "type FQN, default <derived> — derived fully-qualified name"},
+  OM {hasName "hasLinguisticType", hasNote "type Ordium — the fixed core category this ordium instantiates"},
+  OM {hasName "hasName", hasNote "type Name, default <auto created> — local name"},
+  OM {hasName "hasNote", hasNote "type String — documentation"},
+  OM {hasName "hasPID", hasNote "type PID, default <auto created> — stable lifetime identity"},
+  EN {hasName "rule",
+    AO {hasName "minus", hasPredicate Ordium.Core.rule.minus},
+    AO {hasName "neq", hasPredicate Ordium.Core.rule.neq},
+    AO {hasName "plus", hasPredicate Ordium.Core.rule.plus},
+    AO {hasName "violation", hasPredicate Ordium.Core.rule.violation}
+  }
 }
