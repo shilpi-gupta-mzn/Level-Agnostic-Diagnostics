@@ -1,2 +1,10 @@
-effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P) .
-violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1 .
+effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P).
+violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1.
+specialises(?Sub, ?Base) :- categorisationGeneral(?C, ?Base), categorisationSpecial(?C, ?Sub).
+specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Base).
+specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Mid), specialisesPlus(?Mid, ?Base).
+subtypeOrSame(?Sub, ?Base) :- specialisesPlus(?Sub, ?Base).
+iof(?X, ?T) :- hasDeclaredType(?X, ?T).
+iofPlus(?X, ?T) :- iof(?X, ?T).
+iofPlus(?X, ?Super) :- iof(?X, ?T), specialisesPlus(?T, ?Super).
+err_non_adjacent_iof(?X, ?T, ?PX, ?PT) :- iof(?X, ?T), effectivePotency(?X, ?PX), effectivePotency(?T, ?PT), ?PT != ?PX + 1.
