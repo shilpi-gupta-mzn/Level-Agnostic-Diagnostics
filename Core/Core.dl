@@ -1,5 +1,5 @@
 % ============================================================================
-% A) MINIMIZED SOURCE-DEFINITION FACTS
+% A) RELEVANT SOURCE-DEFINITION FACTS
 % ============================================================================
 hasCustodian(Ordium.Core, Ordium) .
 hasCustodian(Ordium.Core.Argument, Ordium.Core) .
