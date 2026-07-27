@@ -1,6 +1,3 @@
-// Minimized OntoUML profile source.
-// Contains source-definition facts, three executable family facts, and eleven executable rules.
-
 EN {hasName "OntoUML", hasFQN "Ordium.Profile.OntoUML", hasNote "Minimized OntoUML vocabulary, family facts, and diagnostic rules required by the ER reproduction.", hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
   DT {hasName "ClassStereotype", hasFQN "Ordium.Profile.OntoUML.ClassStereotype", hasNote "OntoUML class stereotype values. The DataValue name is the default lexeme.",
     DV {hasName "kind", hasNote "Rigid sortal that supplies an identity principle for its instances."},
