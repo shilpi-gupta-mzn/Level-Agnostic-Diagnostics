@@ -25,3 +25,16 @@ iof(?X, ?T) :- hasDeclaredType(?X, ?T) .
 iofPlus(?X, ?T) :- iof(?X, ?T) .
 iofPlus(?X, ?Super) :- iof(?X, ?T), specialisesPlus(?T, ?Super) .
 err_non_adjacent_iof(?X, ?T, ?PX, ?PT) :- iof(?X, ?T), effectivePotency(?X, ?PX), effectivePotency(?T, ?PT), ?PT != ?PX + 1 .
+partitions(?Partition, ?Base) :- markedRef(?Partition, Ordium.Profile.MLT.PowertypeRelation.partitions, ?Base) .
+categorizes(?Categorizer, ?Base) :- markedRef(?Categorizer, Ordium.Profile.MLT.PowertypeRelation.categorizes, ?Base) .
+partitionMember(?Partition, ?Member) :- partitions(?Partition, ?Base), iof(?Member, ?Partition), specialisesPlus(?Member, ?Base) .
+baseIndividual(?X, ?Base) :- effectivePotency(?X, 0), iofPlus(?X, ?Base) .
+coveredBy(?Partition, ?X) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), partitionBranch(?Partition, ?Member), iofPlus(?X, ?Member) .
+err_partition_bad_member(?Partition, ?Base, ?Member) :- partitions(?Partition, ?Base), iof(?Member, ?Partition), ~specialisesPlus(?Member, ?Base) .
+err_partition_missing(?Partition, ?Base, ?X) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), ~coveredBy(?Partition, ?X) .
+err_partition_overlap(?Partition, ?X, ?M1, ?M2) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, iofPlus(?X, ?M1), iofPlus(?X, ?M2) .
+err_partition_subtype_overlap(?Partition, ?BadType, ?M1, ?M2) :- partitions(?Partition, ?Base), partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, specialisesPlus(?BadType, ?M1), specialisesPlus(?BadType, ?M2) .
+err_partition_specialization(?P1, ?P2, ?Base) :- partitions(?P1, ?Base), partitions(?P2, ?Base), ?P1 != ?P2, specialisesPlus(?P1, ?P2) .
+err_categorizer_bad_member(?Categorizer, ?Base, ?Member) :- categorizes(?Categorizer, ?Base), iof(?Member, ?Categorizer), ~specialisesPlus(?Member, ?Base) .
+nestedPartitionMember(?Partition, ?Member) :- partitionMember(?Partition, ?Member), partitionMember(?Partition, ?SuperMember), ?Member != ?SuperMember, specialisesPlus(?Member, ?SuperMember) .
+partitionBranch(?Partition, ?Member) :- partitionMember(?Partition, ?Member), ~nestedPartitionMember(?Partition, ?Member) .
