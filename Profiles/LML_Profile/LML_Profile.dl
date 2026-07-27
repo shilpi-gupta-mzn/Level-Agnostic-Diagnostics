@@ -1,5 +1,5 @@
 % ============================================================================
-% A) Relevant SOURCE-DEFINITION FACTS
+% A) RELEVANT SOURCE-DEFINITION FACTS
 % ============================================================================
 hasCustodian(Ordium.Profile.LML, Ordium.Profile) .
 hasCustodian(Ordium.Profile.LML.DiagnosticSeverity, Ordium.Profile.LML) .
