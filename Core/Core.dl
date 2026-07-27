@@ -1,3 +1,244 @@
+% ============================================================================
+% A) MINIMIZED SOURCE-DEFINITION FACTS
+% ============================================================================
+hasCustodian(Ordium.Core, Ordium) .
+hasCustodian(Ordium.Core.Argument, Ordium.Core) .
+hasCustodian(Ordium.Core.Argument.bindsTo, Ordium.Core.Argument) .
+hasCustodian(Ordium.Core.Argument.fills, Ordium.Core.Argument) .
+hasCustodian(Ordium.Core.Atom, Ordium.Core) .
+hasCustodian(Ordium.Core.Atom.hasPredicate, Ordium.Core.Atom) .
+hasCustodian(Ordium.Core.Atom.isExplicit, Ordium.Core.Atom) .
+hasCustodian(Ordium.Core.Atom.isNegated, Ordium.Core.Atom) .
+hasCustodian(Ordium.Core.Categorisation, Ordium.Core) .
+hasCustodian(Ordium.Core.Categorisation.isComplete, Ordium.Core.Categorisation) .
+hasCustodian(Ordium.Core.Categorisation.isDisjoint, Ordium.Core.Categorisation) .
+hasCustodian(Ordium.Core.Clabject, Ordium.Core) .
+hasCustodian(Ordium.Core.Clabject.hasDeclaredType, Ordium.Core.Clabject) .
+hasCustodian(Ordium.Core.Clabject.hasPotency, Ordium.Core.Clabject) .
+hasCustodian(Ordium.Core.DataType, Ordium.Core) .
+hasCustodian(Ordium.Core.DataType.Boolean, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.Boolean.False, Ordium.Core.DataType.Boolean) .
+hasCustodian(Ordium.Core.DataType.Boolean.False.falseLexeme, Ordium.Core.DataType.Boolean.False) .
+hasCustodian(Ordium.Core.DataType.Boolean.True, Ordium.Core.DataType.Boolean) .
+hasCustodian(Ordium.Core.DataType.Boolean.True.trueLexeme, Ordium.Core.DataType.Boolean.True) .
+hasCustodian(Ordium.Core.DataType.FQN, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.Integer, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.Integer.One, Ordium.Core.DataType.Integer) .
+hasCustodian(Ordium.Core.DataType.Integer.One.oneLexeme, Ordium.Core.DataType.Integer.One) .
+hasCustodian(Ordium.Core.DataType.Integer.Zero, Ordium.Core.DataType.Integer) .
+hasCustodian(Ordium.Core.DataType.Integer.Zero.zeroLexeme, Ordium.Core.DataType.Integer.Zero) .
+hasCustodian(Ordium.Core.DataType.Name, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.NonNegativeInteger, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.NonNegativeInteger.One, Ordium.Core.DataType.NonNegativeInteger) .
+hasCustodian(Ordium.Core.DataType.NonNegativeInteger.One.oneLexeme, Ordium.Core.DataType.NonNegativeInteger.One) .
+hasCustodian(Ordium.Core.DataType.NonNegativeInteger.Zero, Ordium.Core.DataType.NonNegativeInteger) .
+hasCustodian(Ordium.Core.DataType.NonNegativeInteger.Zero.zeroLexeme, Ordium.Core.DataType.NonNegativeInteger.Zero) .
+hasCustodian(Ordium.Core.DataType.PID, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.String, Ordium.Core.DataType) .
+hasCustodian(Ordium.Core.DataType.String.EmptyString, Ordium.Core.DataType.String) .
+hasCustodian(Ordium.Core.DataType.String.EmptyString.emptyStringLexeme, Ordium.Core.DataType.String.EmptyString) .
+hasCustodian(Ordium.Core.DataValue, Ordium.Core) .
+hasCustodian(Ordium.Core.DataValue.ofDataType, Ordium.Core.DataValue) .
+hasCustodian(Ordium.Core.Entity, Ordium.Core) .
+hasCustodian(Ordium.Core.Intercalation, Ordium.Core) .
+hasCustodian(Ordium.Core.Intercalation.isGeneralisation, Ordium.Core.Intercalation) .
+hasCustodian(Ordium.Core.Literal, Ordium.Core) .
+hasCustodian(Ordium.Core.Literal.hasLexeme, Ordium.Core.Literal) .
+hasCustodian(Ordium.Core.Marker, Ordium.Core) .
+hasCustodian(Ordium.Core.Marker.hasTag, Ordium.Core.Marker) .
+hasCustodian(Ordium.Core.Marker.refersTo, Ordium.Core.Marker) .
+hasCustodian(Ordium.Core.Mediation, Ordium.Core) .
+hasCustodian(Ordium.Core.Mediation.hasRelatum, Ordium.Core.Mediation) .
+hasCustodian(Ordium.Core.Parameter, Ordium.Core) .
+hasCustodian(Ordium.Core.Parameter.hasType, Ordium.Core.Parameter) .
+hasCustodian(Ordium.Core.Parameter.isExistential, Ordium.Core.Parameter) .
+hasCustodian(Ordium.Core.Participation, Ordium.Core) .
+hasCustodian(Ordium.Core.Participation.hasRoleName, Ordium.Core.Participation) .
+hasCustodian(Ordium.Core.Relationship, Ordium.Core) .
+hasCustodian(Ordium.Core.Relationship.hasAssociationName, Ordium.Core.Relationship) .
+hasCustodian(Ordium.Core.follows, Ordium.Core) .
+hasCustodian(Ordium.Core.hasCustodian, Ordium.Core) .
+hasCustodian(Ordium.Core.hasFQN, Ordium.Core) .
+hasCustodian(Ordium.Core.hasLinguisticType, Ordium.Core) .
+hasCustodian(Ordium.Core.hasName, Ordium.Core) .
+hasCustodian(Ordium.Core.hasNote, Ordium.Core) .
+hasCustodian(Ordium.Core.hasPID, Ordium.Core) .
+hasLexeme(Ordium.Core.DataType.Boolean.False.falseLexeme, false) .
+hasLexeme(Ordium.Core.DataType.Boolean.True.trueLexeme, true) .
+hasLexeme(Ordium.Core.DataType.Integer.One.oneLexeme, 1) .
+hasLexeme(Ordium.Core.DataType.Integer.Zero.zeroLexeme, 0) .
+hasLexeme(Ordium.Core.DataType.NonNegativeInteger.One.oneLexeme, 1) .
+hasLexeme(Ordium.Core.DataType.NonNegativeInteger.Zero.zeroLexeme, 0) .
+hasLexeme(Ordium.Core.DataType.String.EmptyString.emptyStringLexeme, "") .
+hasLinguisticType(Ordium.Core, Entity) .
+hasLinguisticType(Ordium.Core.Argument, Ordium) .
+hasLinguisticType(Ordium.Core.Argument.bindsTo, Ordium) .
+hasLinguisticType(Ordium.Core.Argument.fills, Ordium) .
+hasLinguisticType(Ordium.Core.Atom, Ordium) .
+hasLinguisticType(Ordium.Core.Atom.hasPredicate, Ordium) .
+hasLinguisticType(Ordium.Core.Atom.isExplicit, Ordium) .
+hasLinguisticType(Ordium.Core.Atom.isNegated, Ordium) .
+hasLinguisticType(Ordium.Core.Categorisation, Ordium) .
+hasLinguisticType(Ordium.Core.Categorisation.isComplete, Ordium) .
+hasLinguisticType(Ordium.Core.Categorisation.isDisjoint, Ordium) .
+hasLinguisticType(Ordium.Core.Clabject, Ordium) .
+hasLinguisticType(Ordium.Core.Clabject.hasDeclaredType, Ordium) .
+hasLinguisticType(Ordium.Core.Clabject.hasPotency, Ordium) .
+hasLinguisticType(Ordium.Core.DataType, Ordium) .
+hasLinguisticType(Ordium.Core.DataType.Boolean, DataType) .
+hasLinguisticType(Ordium.Core.DataType.Boolean.False, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.Boolean.False.falseLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataType.Boolean.True, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.Boolean.True.trueLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataType.FQN, DataType) .
+hasLinguisticType(Ordium.Core.DataType.Integer, DataType) .
+hasLinguisticType(Ordium.Core.DataType.Integer.One, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.Integer.One.oneLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataType.Integer.Zero, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.Integer.Zero.zeroLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataType.Name, DataType) .
+hasLinguisticType(Ordium.Core.DataType.NonNegativeInteger, DataType) .
+hasLinguisticType(Ordium.Core.DataType.NonNegativeInteger.One, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.NonNegativeInteger.One.oneLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataType.NonNegativeInteger.Zero, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.NonNegativeInteger.Zero.zeroLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataType.PID, DataType) .
+hasLinguisticType(Ordium.Core.DataType.String, DataType) .
+hasLinguisticType(Ordium.Core.DataType.String.EmptyString, DataValue) .
+hasLinguisticType(Ordium.Core.DataType.String.EmptyString.emptyStringLexeme, Literal) .
+hasLinguisticType(Ordium.Core.DataValue, Ordium) .
+hasLinguisticType(Ordium.Core.DataValue.ofDataType, Ordium) .
+hasLinguisticType(Ordium.Core.Entity, Ordium) .
+hasLinguisticType(Ordium.Core.Intercalation, Ordium) .
+hasLinguisticType(Ordium.Core.Intercalation.isGeneralisation, Ordium) .
+hasLinguisticType(Ordium.Core.Literal, Ordium) .
+hasLinguisticType(Ordium.Core.Literal.hasLexeme, Ordium) .
+hasLinguisticType(Ordium.Core.Marker, Ordium) .
+hasLinguisticType(Ordium.Core.Marker.hasTag, Ordium) .
+hasLinguisticType(Ordium.Core.Marker.refersTo, Ordium) .
+hasLinguisticType(Ordium.Core.Mediation, Ordium) .
+hasLinguisticType(Ordium.Core.Mediation.hasRelatum, Ordium) .
+hasLinguisticType(Ordium.Core.Parameter, Ordium) .
+hasLinguisticType(Ordium.Core.Parameter.hasType, Ordium) .
+hasLinguisticType(Ordium.Core.Parameter.isExistential, Ordium) .
+hasLinguisticType(Ordium.Core.Participation, Ordium) .
+hasLinguisticType(Ordium.Core.Participation.hasRoleName, Ordium) .
+hasLinguisticType(Ordium.Core.Relationship, Ordium) .
+hasLinguisticType(Ordium.Core.Relationship.hasAssociationName, Ordium) .
+hasLinguisticType(Ordium.Core.follows, Ordium) .
+hasLinguisticType(Ordium.Core.hasCustodian, Ordium) .
+hasLinguisticType(Ordium.Core.hasFQN, Ordium) .
+hasLinguisticType(Ordium.Core.hasLinguisticType, Ordium) .
+hasLinguisticType(Ordium.Core.hasName, Ordium) .
+hasLinguisticType(Ordium.Core.hasNote, Ordium) .
+hasLinguisticType(Ordium.Core.hasPID, Ordium) .
+hasName(Ordium.Core, Core) .
+hasName(Ordium.Core.Argument, Argument) .
+hasName(Ordium.Core.Argument.bindsTo, bindsTo) .
+hasName(Ordium.Core.Argument.fills, fills) .
+hasName(Ordium.Core.Atom, Atom) .
+hasName(Ordium.Core.Atom.hasPredicate, hasPredicate) .
+hasName(Ordium.Core.Atom.isExplicit, isExplicit) .
+hasName(Ordium.Core.Atom.isNegated, isNegated) .
+hasName(Ordium.Core.Categorisation, Categorisation) .
+hasName(Ordium.Core.Categorisation.isComplete, isComplete) .
+hasName(Ordium.Core.Categorisation.isDisjoint, isDisjoint) .
+hasName(Ordium.Core.Clabject, Clabject) .
+hasName(Ordium.Core.Clabject.hasDeclaredType, hasDeclaredType) .
+hasName(Ordium.Core.Clabject.hasPotency, hasPotency) .
+hasName(Ordium.Core.DataType, DataType) .
+hasName(Ordium.Core.DataType.Boolean, Boolean) .
+hasName(Ordium.Core.DataType.Boolean.False, False) .
+hasName(Ordium.Core.DataType.Boolean.False.falseLexeme, falseLexeme) .
+hasName(Ordium.Core.DataType.Boolean.True, True) .
+hasName(Ordium.Core.DataType.Boolean.True.trueLexeme, trueLexeme) .
+hasName(Ordium.Core.DataType.FQN, FQN) .
+hasName(Ordium.Core.DataType.Integer, Integer) .
+hasName(Ordium.Core.DataType.Integer.One, One) .
+hasName(Ordium.Core.DataType.Integer.One.oneLexeme, oneLexeme) .
+hasName(Ordium.Core.DataType.Integer.Zero, Zero) .
+hasName(Ordium.Core.DataType.Integer.Zero.zeroLexeme, zeroLexeme) .
+hasName(Ordium.Core.DataType.Name, Name) .
+hasName(Ordium.Core.DataType.NonNegativeInteger, NonNegativeInteger) .
+hasName(Ordium.Core.DataType.NonNegativeInteger.One, One) .
+hasName(Ordium.Core.DataType.NonNegativeInteger.One.oneLexeme, oneLexeme) .
+hasName(Ordium.Core.DataType.NonNegativeInteger.Zero, Zero) .
+hasName(Ordium.Core.DataType.NonNegativeInteger.Zero.zeroLexeme, zeroLexeme) .
+hasName(Ordium.Core.DataType.PID, PID) .
+hasName(Ordium.Core.DataType.String, String) .
+hasName(Ordium.Core.DataType.String.EmptyString, EmptyString) .
+hasName(Ordium.Core.DataType.String.EmptyString.emptyStringLexeme, emptyStringLexeme) .
+hasName(Ordium.Core.DataValue, DataValue) .
+hasName(Ordium.Core.DataValue.ofDataType, ofDataType) .
+hasName(Ordium.Core.Entity, Entity) .
+hasName(Ordium.Core.Intercalation, Intercalation) .
+hasName(Ordium.Core.Intercalation.isGeneralisation, isGeneralisation) .
+hasName(Ordium.Core.Literal, Literal) .
+hasName(Ordium.Core.Literal.hasLexeme, hasLexeme) .
+hasName(Ordium.Core.Marker, Marker) .
+hasName(Ordium.Core.Marker.hasTag, hasTag) .
+hasName(Ordium.Core.Marker.refersTo, refersTo) .
+hasName(Ordium.Core.Mediation, Mediation) .
+hasName(Ordium.Core.Mediation.hasRelatum, hasRelatum) .
+hasName(Ordium.Core.Parameter, Parameter) .
+hasName(Ordium.Core.Parameter.hasType, hasType) .
+hasName(Ordium.Core.Parameter.isExistential, isExistential) .
+hasName(Ordium.Core.Participation, Participation) .
+hasName(Ordium.Core.Participation.hasRoleName, hasRoleName) .
+hasName(Ordium.Core.Relationship, Relationship) .
+hasName(Ordium.Core.Relationship.hasAssociationName, hasAssociationName) .
+hasName(Ordium.Core.follows, follows) .
+hasName(Ordium.Core.hasCustodian, hasCustodian) .
+hasName(Ordium.Core.hasFQN, hasFQN) .
+hasName(Ordium.Core.hasLinguisticType, hasLinguisticType) .
+hasName(Ordium.Core.hasName, hasName) .
+hasName(Ordium.Core.hasNote, hasNote) .
+hasName(Ordium.Core.hasPID, hasPID) .
+hasNote(Ordium.Core, "Minimized PAMoLa core vocabulary and rules required by the ER diagnostic reproduction.") .
+hasNote(Ordium.Core.Argument, "badge AG, supertype BehaviouralOrdium") .
+hasNote(Ordium.Core.Argument.bindsTo, "type Ordium") .
+hasNote(Ordium.Core.Argument.fills, "type Parameter, optional") .
+hasNote(Ordium.Core.Atom, "badge AO, supertype BehaviouralOrdium") .
+hasNote(Ordium.Core.Atom.hasPredicate, "type Ordium") .
+hasNote(Ordium.Core.Atom.isExplicit, "type Boolean, default true") .
+hasNote(Ordium.Core.Atom.isNegated, "type Boolean, default false") .
+hasNote(Ordium.Core.Categorisation, "badge CA, supertype ImmanentOrdium") .
+hasNote(Ordium.Core.Categorisation.isComplete, "type Boolean, default false") .
+hasNote(Ordium.Core.Categorisation.isDisjoint, "type Boolean, default false") .
+hasNote(Ordium.Core.Clabject, "abstract, supertype ImmanentOrdium — identity-bearing, ontologically classifiable") .
+hasNote(Ordium.Core.Clabject.hasDeclaredType, "type Clabject, optional — absent = no declared ontological type; uninterpreted by the core, classification discipline is profile content") .
+hasNote(Ordium.Core.Clabject.hasPotency, "type NonNegativeInteger, optional — uninterpreted by the core; classification profiles (e.g. Ordium.Profile.LML) give it meaning, LML reading an absent potency as 0") .
+hasNote(Ordium.Core.DataType, "badge DT, supertype TranscendentOrdium") .
+hasNote(Ordium.Core.DataValue, "badge DV, supertype TranscendentOrdium") .
+hasNote(Ordium.Core.DataValue.ofDataType, "type DataType, optional — datatype source; XOR with datatype-by-custodian") .
+hasNote(Ordium.Core.Entity, "badge EN, supertype Clabject") .
+hasNote(Ordium.Core.Intercalation, "badge IC, supertype Mediation") .
+hasNote(Ordium.Core.Intercalation.isGeneralisation, "type Boolean, default false") .
+hasNote(Ordium.Core.Literal, "badge LI, supertype TranscendentOrdium") .
+hasNote(Ordium.Core.Literal.hasLexeme, "type Ordium — Ordium-typed so textual/binary/artefact lexemes are uniform; plain text written as a quoted string") .
+hasNote(Ordium.Core.Marker, "badge MK, supertype TranscendentOrdium") .
+hasNote(Ordium.Core.Marker.hasTag, "type DataValue") .
+hasNote(Ordium.Core.Marker.refersTo, "type Ordium, optional") .
+hasNote(Ordium.Core.Mediation, "abstract, supertype ImmanentOrdium") .
+hasNote(Ordium.Core.Mediation.hasRelatum, "type Ordium, optional — required for mediation participations/intercalations (custodian RE/CA, enforced by rule); absent by design on multi-attribute slot participations (custodian EN) — DR-006") .
+hasNote(Ordium.Core.Parameter, "badge PM, supertype BehaviouralOrdium") .
+hasNote(Ordium.Core.Parameter.hasType, "type Ordium") .
+hasNote(Ordium.Core.Parameter.isExistential, "type Boolean, default false") .
+hasNote(Ordium.Core.Participation, "badge PA, supertype Mediation") .
+hasNote(Ordium.Core.Participation.hasRoleName, "type String, default §") .
+hasNote(Ordium.Core.Relationship, "badge RE, supertype Clabject") .
+hasNote(Ordium.Core.Relationship.hasAssociationName, "type String, default §") .
+hasNote(Ordium.Core.follows, "type Ordium, optional — general-purpose sequencing pointer; NOT ward ordering; target unconstrained") .
+hasNote(Ordium.Core.hasCustodian, "type Ordium — custodian (locality/naming spine)") .
+hasNote(Ordium.Core.hasFQN, "type FQN, default <derived> — derived fully-qualified name") .
+hasNote(Ordium.Core.hasLinguisticType, "type Ordium — the fixed core category this ordium instantiates") .
+hasNote(Ordium.Core.hasName, "type Name, default <auto created> — local name") .
+hasNote(Ordium.Core.hasNote, "type String — documentation") .
+hasNote(Ordium.Core.hasPID, "type PID, default <auto created> — stable lifetime identity") .
+
+% ============================================================================
+% B) EXECUTABLE FACTS AND RULES OWNED BY THIS SOURCE
+% ============================================================================
 Categorisation(?X) :- hasLinguisticType(?X, Categorisation) .
 categorisationGeneral(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, true), hasRelatum(?I, ?X) .
 categorisationSpecial(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, false), hasRelatum(?I, ?X) .
@@ -9,3 +250,5 @@ markedRef(?X, ?Tag, ?Target) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Ta
 marked(?X, ?Tag) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Tag) .
 Participation(?X) :- hasLinguisticType(?X, Participation) .
 Relationship(?X) :- hasLinguisticType(?X, Relationship) .
+endType(?R, ?P, ?T) :- Relationship(?R), Participation(?P), hasCustodian(?P, ?R), hasRelatum(?P, ?T) .
+relationEndPair(?R, ?End1, ?End2) :- endType(?R, ?P1, ?End1), endType(?R, ?P2, ?End2), ?P1 != ?P2 .
