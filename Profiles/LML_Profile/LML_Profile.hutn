@@ -1,125 +1,48 @@
-EN {hasName "LML", hasFQN "Ordium.Profile.LML", hasNote "Reference classification profile (Level-Agnostic Modelling Language). The rule ward contains the authoritative reified rule content; LML_Profile.dl is its generated textual projection.", hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
+EN {hasName "LML", hasFQN "Ordium.Profile.LML",
+  hasNote "Fixture-specific LML slice used by the level-agnostic diagnostics reproduction artifact.",
+  hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
   EN {hasName "rule",
-    AO {hasName "categorisationManyToMany", hasPredicate Ordium.Core.rule.violation,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.categorisationManyToMany.C, fills Ordium.Profile.LML.rule.categorisationManyToMany.C},
-      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.manyGenerals,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.categorisationManyToMany.C, fills Ordium.Profile.LML.rule.categorisationManyToMany.C}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.categorisationManyToMany.AO__1, hasPredicate Ordium.Profile.LML.rule.manySpecials,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.categorisationManyToMany.C, fills Ordium.Profile.LML.rule.categorisationManyToMany.C}
-      },
-      PM {hasName "C", hasType Ordium}
-    },
-    AO {hasName "declaredTypeSingleValued", hasPredicate Ordium.Core.rule.violation,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.X, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.X},
-      AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject.hasDeclaredType,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.X, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.declaredTypeSingleValued.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.T1, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.T1}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.declaredTypeSingleValued.AO__1, hasPredicate Ordium.Core.Clabject.hasDeclaredType,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.X, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.declaredTypeSingleValued.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.T2, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.T2}
-      },
-      AO {hasName "AO__3", follows Ordium.Profile.LML.rule.declaredTypeSingleValued.AO__2, isExplicit false, hasPredicate Ordium.Core.rule.neq,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.T1, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.T1},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.declaredTypeSingleValued.AO__3.AG__1, bindsTo Ordium.Profile.LML.rule.declaredTypeSingleValued.T2, fills Ordium.Profile.LML.rule.declaredTypeSingleValued.T2}
-      },
-      PM {hasName "T1", hasType Ordium},
-      PM {hasName "T2", hasType Ordium},
-      PM {hasName "X", hasType Ordium}
-    },
     AO {hasName "effectivePotency", hasPredicate Ordium.Profile.LML.rule.effectivePotency},
     AO {hasName "effectivePotency__2", hasPredicate Ordium.Profile.LML.rule.effectivePotency,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__2.X, fills Ordium.Profile.LML.rule.effectivePotency__2.X},
-      AG {hasName "AG__2", follows Ordium.Profile.LML.rule.effectivePotency__2.AG__1, bindsTo Ordium.Profile.LML.rule.effectivePotency__2.P, fills Ordium.Profile.LML.rule.effectivePotency__2.P},
-      AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__2.X, fills Ordium.Profile.LML.rule.effectivePotency__2.X}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.effectivePotency__2.AO__1, hasPredicate Ordium.Core.Clabject.hasPotency,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__2.X, fills Ordium.Profile.LML.rule.effectivePotency__2.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.effectivePotency__2.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.effectivePotency__2.P, fills Ordium.Profile.LML.rule.effectivePotency__2.P}
-      },
-      PM {hasName "P", hasType Ordium},
-      PM {hasName "X", hasType Ordium}
-    },
-    AO {hasName "effectivePotency__3", hasPredicate Ordium.Profile.LML.rule.effectivePotency,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__3.X, fills Ordium.Profile.LML.rule.effectivePotency__3.X},
-      AG {hasName "AG__2", follows Ordium.Profile.LML.rule.effectivePotency__3.AG__1, bindsTo Ordium.Core.DataType.Integer.Zero},
-      AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__3.X, fills Ordium.Profile.LML.rule.effectivePotency__3.X}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.effectivePotency__3.AO__1, isNegated true, hasPredicate Ordium.Core.Clabject.hasPotency,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__3.X, fills Ordium.Profile.LML.rule.effectivePotency__3.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.effectivePotency__3.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.effectivePotency__3.PM__1, fills Ordium.Profile.LML.rule.effectivePotency__3.PM__1}
-      },
-      PM {hasName "PM__1", isExistential true, hasType Ordium},
-      PM {hasName "X", hasType Ordium}
-    },
-    AO {hasName "manyGenerals", hasPredicate Ordium.Profile.LML.rule.manyGenerals},
-    AO {hasName "manyGenerals__2", hasPredicate Ordium.Profile.LML.rule.manyGenerals,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manyGenerals__2.C, fills Ordium.Profile.LML.rule.manyGenerals__2.C},
-      AO {hasName "AO__1", hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manyGenerals__2.C, fills Ordium.Profile.LML.rule.manyGenerals__2.C},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.manyGenerals__2.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.manyGenerals__2.X, fills Ordium.Profile.LML.rule.manyGenerals__2.X}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.manyGenerals__2.AO__1, hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manyGenerals__2.C, fills Ordium.Profile.LML.rule.manyGenerals__2.C},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.manyGenerals__2.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.manyGenerals__2.Y, fills Ordium.Profile.LML.rule.manyGenerals__2.Y}
-      },
-      AO {hasName "AO__3", follows Ordium.Profile.LML.rule.manyGenerals__2.AO__2, isExplicit false, hasPredicate Ordium.Core.rule.neq,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manyGenerals__2.X, fills Ordium.Profile.LML.rule.manyGenerals__2.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.manyGenerals__2.AO__3.AG__1, bindsTo Ordium.Profile.LML.rule.manyGenerals__2.Y, fills Ordium.Profile.LML.rule.manyGenerals__2.Y}
-      },
-      PM {hasName "C", hasType Ordium},
-      PM {hasName "X", hasType Ordium},
-      PM {hasName "Y", hasType Ordium}
-    },
-    AO {hasName "manySpecials", hasPredicate Ordium.Profile.LML.rule.manySpecials},
-    AO {hasName "manySpecials__2", hasPredicate Ordium.Profile.LML.rule.manySpecials,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manySpecials__2.C, fills Ordium.Profile.LML.rule.manySpecials__2.C},
-      AO {hasName "AO__1", hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manySpecials__2.C, fills Ordium.Profile.LML.rule.manySpecials__2.C},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.manySpecials__2.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.manySpecials__2.X, fills Ordium.Profile.LML.rule.manySpecials__2.X}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.manySpecials__2.AO__1, hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manySpecials__2.C, fills Ordium.Profile.LML.rule.manySpecials__2.C},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.manySpecials__2.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.manySpecials__2.Y, fills Ordium.Profile.LML.rule.manySpecials__2.Y}
-      },
-      AO {hasName "AO__3", follows Ordium.Profile.LML.rule.manySpecials__2.AO__2, isExplicit false, hasPredicate Ordium.Core.rule.neq,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.manySpecials__2.X, fills Ordium.Profile.LML.rule.manySpecials__2.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.manySpecials__2.AO__3.AG__1, bindsTo Ordium.Profile.LML.rule.manySpecials__2.Y, fills Ordium.Profile.LML.rule.manySpecials__2.Y}
-      },
-      PM {hasName "C", hasType Ordium},
-      PM {hasName "X", hasType Ordium},
-      PM {hasName "Y", hasType Ordium}
-    },
+          AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__2.X, fills Ordium.Profile.LML.rule.effectivePotency__2.X},
+          AG {hasName "AG__2", follows Ordium.Profile.LML.rule.effectivePotency__2.AG__1, bindsTo Ordium.Profile.LML.rule.effectivePotency__2.P, fills Ordium.Profile.LML.rule.effectivePotency__2.P},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject,
+            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__2.X, fills Ordium.Profile.LML.rule.effectivePotency__2.X}
+          },
+          AO {hasName "AO__2", follows Ordium.Profile.LML.rule.effectivePotency__2.AO__1, hasPredicate Ordium.Core.Clabject.hasPotency,
+            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.effectivePotency__2.X, fills Ordium.Profile.LML.rule.effectivePotency__2.X},
+            AG {hasName "AG__2", follows Ordium.Profile.LML.rule.effectivePotency__2.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.effectivePotency__2.P, fills Ordium.Profile.LML.rule.effectivePotency__2.P}
+          },
+          PM {hasName "P", hasType Ordium},
+          PM {hasName "X", hasType Ordium}
+        },
     AO {hasName "potencyStep", hasPredicate Ordium.Core.rule.violation,
-      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.X, fills Ordium.Profile.LML.rule.potencyStep.X},
-      AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject.hasDeclaredType,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.X, fills Ordium.Profile.LML.rule.potencyStep.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.T, fills Ordium.Profile.LML.rule.potencyStep.T}
-      },
-      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.potencyStep.AO__1, hasPredicate Ordium.Profile.LML.rule.effectivePotency,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.X, fills Ordium.Profile.LML.rule.potencyStep.X},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.P, fills Ordium.Profile.LML.rule.potencyStep.P}
-      },
-      AO {hasName "AO__3", follows Ordium.Profile.LML.rule.potencyStep.AO__2, hasPredicate Ordium.Profile.LML.rule.effectivePotency,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.T, fills Ordium.Profile.LML.rule.potencyStep.T},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__3.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.Q, fills Ordium.Profile.LML.rule.potencyStep.Q}
-      },
-      AO {hasName "AO__4", follows Ordium.Profile.LML.rule.potencyStep.AO__3, isExplicit false, hasPredicate Ordium.Core.rule.neq,
-        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.P, fills Ordium.Profile.LML.rule.potencyStep.P},
-        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__4.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.AO__4.AG__2.minus__1,
-          AO {hasName "minus__1", isExplicit false, hasPredicate Ordium.Core.rule.minus,
-            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.Q, fills Ordium.Profile.LML.rule.potencyStep.Q},
-            AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__4.AG__2.minus__1.AG__1, bindsTo Ordium.Core.DataType.Integer.One}
-          }
+          AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.X, fills Ordium.Profile.LML.rule.potencyStep.X},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject.hasDeclaredType,
+            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.X, fills Ordium.Profile.LML.rule.potencyStep.X},
+            AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.T, fills Ordium.Profile.LML.rule.potencyStep.T}
+          },
+          AO {hasName "AO__2", follows Ordium.Profile.LML.rule.potencyStep.AO__1, hasPredicate Ordium.Profile.LML.rule.effectivePotency,
+            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.X, fills Ordium.Profile.LML.rule.potencyStep.X},
+            AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.P, fills Ordium.Profile.LML.rule.potencyStep.P}
+          },
+          AO {hasName "AO__3", follows Ordium.Profile.LML.rule.potencyStep.AO__2, hasPredicate Ordium.Profile.LML.rule.effectivePotency,
+            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.T, fills Ordium.Profile.LML.rule.potencyStep.T},
+            AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__3.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.Q, fills Ordium.Profile.LML.rule.potencyStep.Q}
+          },
+          AO {hasName "AO__4", follows Ordium.Profile.LML.rule.potencyStep.AO__3, isExplicit false, hasPredicate Ordium.Core.rule.neq,
+            AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.P, fills Ordium.Profile.LML.rule.potencyStep.P},
+            AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__4.AG__1, bindsTo Ordium.Profile.LML.rule.potencyStep.AO__4.AG__2.minus__1,
+              AO {hasName "minus__1", isExplicit false, hasPredicate Ordium.Core.rule.minus,
+                AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.potencyStep.Q, fills Ordium.Profile.LML.rule.potencyStep.Q},
+                AG {hasName "AG__2", follows Ordium.Profile.LML.rule.potencyStep.AO__4.AG__2.minus__1.AG__1, bindsTo Ordium.Core.DataType.Integer.One}
+              }
+            }
+          },
+          PM {hasName "P", hasType Ordium},
+          PM {hasName "Q", hasType Ordium},
+          PM {hasName "T", hasType Ordium},
+          PM {hasName "X", hasType Ordium}
         }
-      },
-      PM {hasName "P", hasType Ordium},
-      PM {hasName "Q", hasType Ordium},
-      PM {hasName "T", hasType Ordium},
-      PM {hasName "X", hasType Ordium}
-    }
   }
 }
