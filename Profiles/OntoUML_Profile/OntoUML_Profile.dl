@@ -1,3 +1,77 @@
-sortal(<urn:pamola:fqn:Ordium.Profile.OntoUML.ClassStereotype.kind>) .
-sortal(<urn:pamola:fqn:Ordium.Profile.OntoUML.ClassStereotype.role>) .
-identityProvider(<urn:pamola:fqn:Ordium.Profile.OntoUML.ClassStereotype.kind>) .
+% ============================================================================
+% A) MINIMIZED SOURCE-DEFINITION FACTS
+% ============================================================================
+hasCustodian(Ordium.Profile.OntoUML, Ordium.Profile) .
+hasCustodian(Ordium.Profile.OntoUML.ClassFamily, Ordium.Profile.OntoUML) .
+hasCustodian(Ordium.Profile.OntoUML.ClassFamily.identityProvider, Ordium.Profile.OntoUML.ClassFamily) .
+hasCustodian(Ordium.Profile.OntoUML.ClassFamily.sortal, Ordium.Profile.OntoUML.ClassFamily) .
+hasCustodian(Ordium.Profile.OntoUML.ClassStereotype, Ordium.Profile.OntoUML) .
+hasCustodian(Ordium.Profile.OntoUML.ClassStereotype.kind, Ordium.Profile.OntoUML.ClassStereotype) .
+hasCustodian(Ordium.Profile.OntoUML.ClassStereotype.role, Ordium.Profile.OntoUML.ClassStereotype) .
+hasCustodian(Ordium.Profile.OntoUML.ClassStereotype.subkind, Ordium.Profile.OntoUML.ClassStereotype) .
+hasCustodian(Ordium.Profile.OntoUML.DiagnosticReason, Ordium.Profile.OntoUML) .
+hasCustodian(Ordium.Profile.OntoUML.DiagnosticReason.commonIdentityProvider, Ordium.Profile.OntoUML.DiagnosticReason) .
+hasCustodian(Ordium.Profile.OntoUML.DiagnosticSeverity, Ordium.Profile.OntoUML) .
+hasCustodian(Ordium.Profile.OntoUML.DiagnosticSeverity.error, Ordium.Profile.OntoUML.DiagnosticSeverity) .
+hasCustodian(Ordium.Profile.OntoUML.DiagnosticSeverity.warning, Ordium.Profile.OntoUML.DiagnosticSeverity) .
+hasCustodian(Ordium.Profile.OntoUML.RelationStereotype, Ordium.Profile.OntoUML) .
+hasCustodian(Ordium.Profile.OntoUML.RelationStereotype.instantiation, Ordium.Profile.OntoUML.RelationStereotype) .
+hasLinguisticType(Ordium.Profile.OntoUML, Entity) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassFamily, DataType) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassFamily.identityProvider, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassFamily.sortal, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassStereotype, DataType) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassStereotype.kind, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassStereotype.role, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.ClassStereotype.subkind, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.DiagnosticReason, DataType) .
+hasLinguisticType(Ordium.Profile.OntoUML.DiagnosticReason.commonIdentityProvider, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.DiagnosticSeverity, DataType) .
+hasLinguisticType(Ordium.Profile.OntoUML.DiagnosticSeverity.error, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.DiagnosticSeverity.warning, DataValue) .
+hasLinguisticType(Ordium.Profile.OntoUML.RelationStereotype, DataType) .
+hasLinguisticType(Ordium.Profile.OntoUML.RelationStereotype.instantiation, DataValue) .
+hasName(Ordium.Profile.OntoUML, OntoUML) .
+hasName(Ordium.Profile.OntoUML.ClassFamily, ClassFamily) .
+hasName(Ordium.Profile.OntoUML.ClassFamily.identityProvider, identityProvider) .
+hasName(Ordium.Profile.OntoUML.ClassFamily.sortal, sortal) .
+hasName(Ordium.Profile.OntoUML.ClassStereotype, ClassStereotype) .
+hasName(Ordium.Profile.OntoUML.ClassStereotype.kind, kind) .
+hasName(Ordium.Profile.OntoUML.ClassStereotype.role, role) .
+hasName(Ordium.Profile.OntoUML.ClassStereotype.subkind, subkind) .
+hasName(Ordium.Profile.OntoUML.DiagnosticReason, DiagnosticReason) .
+hasName(Ordium.Profile.OntoUML.DiagnosticReason.commonIdentityProvider, commonIdentityProvider) .
+hasName(Ordium.Profile.OntoUML.DiagnosticSeverity, DiagnosticSeverity) .
+hasName(Ordium.Profile.OntoUML.DiagnosticSeverity.error, error) .
+hasName(Ordium.Profile.OntoUML.DiagnosticSeverity.warning, warning) .
+hasName(Ordium.Profile.OntoUML.RelationStereotype, RelationStereotype) .
+hasName(Ordium.Profile.OntoUML.RelationStereotype.instantiation, instantiation) .
+hasNote(Ordium.Profile.OntoUML, "Minimized OntoUML vocabulary, family facts, and diagnostic rules required by the ER reproduction.") .
+hasNote(Ordium.Profile.OntoUML.ClassFamily, "Derived families used as profile predicates to capture the OntoUML class stereotype hierarchy.") .
+hasNote(Ordium.Profile.OntoUML.ClassFamily.identityProvider, "Sortal stereotype that supplies an identity principle.") .
+hasNote(Ordium.Profile.OntoUML.ClassFamily.sortal, "Stereotype for class types whose instances share an identity principle.") .
+hasNote(Ordium.Profile.OntoUML.ClassStereotype, "OntoUML class stereotype values. The DataValue name is the default lexeme.") .
+hasNote(Ordium.Profile.OntoUML.ClassStereotype.kind, "Rigid sortal that supplies an identity principle for its instances.") .
+hasNote(Ordium.Profile.OntoUML.ClassStereotype.role, "Anti-rigid sortal instantiated in a relational context.") .
+hasNote(Ordium.Profile.OntoUML.ClassStereotype.subkind, "Rigid specialization of an identity provider.") .
+hasNote(Ordium.Profile.OntoUML.DiagnosticReason.commonIdentityProvider, "The endpoint types share the reported identity provider and are not explicitly disjoint.") .
+hasNote(Ordium.Profile.OntoUML.RelationStereotype, "OntoUML relation stereotype values. The DataValue name is the default lexeme.") .
+hasNote(Ordium.Profile.OntoUML.RelationStereotype.instantiation, "Instantiation relation stereotype.") .
+
+% ============================================================================
+% B) EXECUTABLE FACTS AND RULES OWNED BY THIS SOURCE
+% ============================================================================
+sortal(Ordium.Profile.OntoUML.ClassStereotype.kind) .
+sortal(Ordium.Profile.OntoUML.ClassStereotype.role) .
+identityProvider(Ordium.Profile.OntoUML.ClassStereotype.kind) .
+iof(?X, ?T) :- markedRef(?X, Ordium.Profile.OntoUML.RelationStereotype.instantiation, ?T) .
+ontoKind(?T) :- marked(?T, Ordium.Profile.OntoUML.ClassStereotype.kind) .
+identityProvider(?T) :- marked(?T, ?Tag), identityProvider(?Tag) .
+sortal(?T) :- marked(?T, ?Tag), sortal(?Tag) .
+err_kind_bad_ancestor(?Kind, ?Ancestor, ?Tag) :- ontoKind(?Kind), specialisesPlus(?Kind, ?Ancestor), marked(?Ancestor, ?Tag), forbiddenKindAncestorTag(?Tag) .
+hasIdentityProvider(?T, ?K) :- identityProvider(?K), subtypeOrSame(?T, ?K) .
+sameIdentityProvider(?A, ?B, ?K) :- hasIdentityProvider(?A, ?K), hasIdentityProvider(?B, ?K) .
+binOverCase(?Source, ?Target, ?K, Ordium.Profile.OntoUML.DiagnosticReason.commonIdentityProvider) :- sortal(?Source), sortal(?Target), ?Source != ?Target, sameIdentityProvider(?Source, ?Target, ?K), ~explicitlyDisjoint(?Source, ?Target) .
+warn_bin_over_case(?R, ?End1, ?End2, ?Support, ?Reason) :- relationEndPair(?R, ?End1, ?End2), binOverCase(?End1, ?End2, ?Support, ?Reason) .
+warn_bin_over_witness(?R, ?End1, ?End2, ?X) :- warn_bin_over_case(?R, ?End1, ?End2, _, _), iofPlus(?X, ?End1), iofPlus(?X, ?End2) .
+forbiddenKindAncestorTag(?Tag) :- sortal(?Tag) .
