@@ -1,13 +1,308 @@
-
-EN {hasName "MLT", hasFQN "Ordium.Profile.MLT", hasPID "profile:mlt:v1.0.0", hasNote "Minimal MLT vocabulary used by the ER 2026 OntoUML/MLT diagnostic artifact. Terms are referenceable DataValues; semantics are supplied by the diagnostic ware.", hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
+EN {hasName "MLT", hasFQN "Ordium.Profile.MLT", hasNote "Minimized facts-only MLT vocabulary referenced by the running model and LML rules.", hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
   DT {hasName "PowertypeRelation",
     DV {hasName "powertypeOf", hasNote "Classifier whose members are the base type and/or its specializations, under the structural approximation used in this artifact."},
     DV {hasName "categorizes", hasNote "Higher-order classifier whose members specialize the referenced base type."},
     DV {hasName "partitions", hasNote "Categorizer intended to be complete and disjoint over the referenced base type."}
-  },
-  DT {hasName "HigherOrderKind",
-    DV {hasName "powertype"},
-    DV {hasName "categorizer"},
-    DV {hasName "partition"}
+  }
+  EN {hasName "rule", hasNote "Authoritative reified MLT rule content used by the integrated reproduction.",
+    AO {hasName "partitions", hasPredicate Ordium.Profile.LML.rule.partitions},
+    AO {hasName "categorizes", hasPredicate Ordium.Profile.LML.rule.categorizes},
+    AO {hasName "partitionMember", hasPredicate Ordium.Profile.LML.rule.partitionMember},
+    AO {hasName "baseIndividual", hasPredicate Ordium.Profile.LML.rule.baseIndividual},
+    AO {hasName "coveredBy", hasPredicate Ordium.Profile.LML.rule.coveredBy},
+    AO {hasName "err_partition_bad_member", hasPredicate Ordium.Profile.LML.rule.err_partition_bad_member, hasNote "A classifier is classified by a partition but does not specialize the partitioned base type.",
+      MK {hasName "severity", hasTag Ordium.Profile.LML.DiagnosticSeverity.error}
+    },
+    AO {hasName "err_partition_missing", hasPredicate Ordium.Profile.LML.rule.err_partition_missing, hasNote "An individual of the partitioned base type is not covered by any member of the partition.",
+      MK {hasName "severity", hasTag Ordium.Profile.LML.DiagnosticSeverity.error}
+    },
+    AO {hasName "err_partition_overlap", hasPredicate Ordium.Profile.LML.rule.err_partition_overlap, hasNote "An individual is covered by two distinct top-level branches of a disjoint partition.",
+      MK {hasName "severity", hasTag Ordium.Profile.LML.DiagnosticSeverity.error}
+    },
+    AO {hasName "err_partition_subtype_overlap", hasPredicate Ordium.Profile.LML.rule.err_partition_subtype_overlap, hasNote "A subtype specializes two distinct top-level branches of a disjoint partition.",
+      MK {hasName "severity", hasTag Ordium.Profile.LML.DiagnosticSeverity.error}
+    },
+    AO {hasName "err_partition_specialization", hasPredicate Ordium.Profile.LML.rule.err_partition_specialization, hasNote "One partition specializes another partition of the same base type.",
+      MK {hasName "severity", hasTag Ordium.Profile.LML.DiagnosticSeverity.error}
+    },
+    AO {hasName "err_categorizer_bad_member", hasPredicate Ordium.Profile.LML.rule.err_categorizer_bad_member, hasNote "A classifier is classified by a categorizer but does not specialize the categorized base type.",
+      MK {hasName "severity", hasTag Ordium.Profile.LML.DiagnosticSeverity.error}
+    },
+    AO {hasName "nestedPartitionMember", hasPredicate Ordium.Profile.LML.rule.nestedPartitionMember},
+    AO {hasName "partitionBranch", hasPredicate Ordium.Profile.LML.rule.partitionBranch},
+    AO {hasName "partitions_rule", hasPredicate Ordium.Profile.LML.rule.partitions,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitions_rule.Partition, fills Ordium.Profile.LML.rule.partitions_rule.Partition},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.partitions_rule.Base, fills Ordium.Profile.LML.rule.partitions_rule.Base, follows Ordium.Profile.LML.rule.partitions_rule.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.markedRef,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitions_rule.Partition, fills Ordium.Profile.LML.rule.partitions_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.MLT.PowertypeRelation.partitions, follows Ordium.Profile.LML.rule.partitions_rule.AO__1.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Profile.LML.rule.partitions_rule.Base, fills Ordium.Profile.LML.rule.partitions_rule.Base, follows Ordium.Profile.LML.rule.partitions_rule.AO__1.AG__2}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Partition"}
+    },
+    AO {hasName "categorizes_direct", hasPredicate Ordium.Profile.LML.rule.categorizes,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.categorizes_direct.Categorizer, fills Ordium.Profile.LML.rule.categorizes_direct.Categorizer},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.categorizes_direct.Base, fills Ordium.Profile.LML.rule.categorizes_direct.Base, follows Ordium.Profile.LML.rule.categorizes_direct.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.markedRef,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.categorizes_direct.Categorizer, fills Ordium.Profile.LML.rule.categorizes_direct.Categorizer},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.MLT.PowertypeRelation.categorizes, follows Ordium.Profile.LML.rule.categorizes_direct.AO__1.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Profile.LML.rule.categorizes_direct.Base, fills Ordium.Profile.LML.rule.categorizes_direct.Base, follows Ordium.Profile.LML.rule.categorizes_direct.AO__1.AG__2}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Categorizer"}
+    },
+    AO {hasName "partitionMember_rule", hasPredicate Ordium.Profile.LML.rule.partitionMember,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Partition, fills Ordium.Profile.LML.rule.partitionMember_rule.Partition},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Member, fills Ordium.Profile.LML.rule.partitionMember_rule.Member, follows Ordium.Profile.LML.rule.partitionMember_rule.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Partition, fills Ordium.Profile.LML.rule.partitionMember_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Base, fills Ordium.Profile.LML.rule.partitionMember_rule.Base, follows Ordium.Profile.LML.rule.partitionMember_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.iof, follows Ordium.Profile.LML.rule.partitionMember_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Member, fills Ordium.Profile.LML.rule.partitionMember_rule.Member},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Partition, fills Ordium.Profile.LML.rule.partitionMember_rule.Partition, follows Ordium.Profile.LML.rule.partitionMember_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, follows Ordium.Profile.LML.rule.partitionMember_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Member, fills Ordium.Profile.LML.rule.partitionMember_rule.Member},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.partitionMember_rule.Base, fills Ordium.Profile.LML.rule.partitionMember_rule.Base, follows Ordium.Profile.LML.rule.partitionMember_rule.AO__3.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Member"},
+      PM {hasName "Partition"}
+    },
+    AO {hasName "baseIndividual_rule", hasPredicate Ordium.Profile.LML.rule.baseIndividual,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.baseIndividual_rule.X, fills Ordium.Profile.LML.rule.baseIndividual_rule.X},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.baseIndividual_rule.Base, fills Ordium.Profile.LML.rule.baseIndividual_rule.Base, follows Ordium.Profile.LML.rule.baseIndividual_rule.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.effectivePotency,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.baseIndividual_rule.X, fills Ordium.Profile.LML.rule.baseIndividual_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Core.DataType.Integer.Zero, follows Ordium.Profile.LML.rule.baseIndividual_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.iofPlus, follows Ordium.Profile.LML.rule.baseIndividual_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.baseIndividual_rule.X, fills Ordium.Profile.LML.rule.baseIndividual_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.baseIndividual_rule.Base, fills Ordium.Profile.LML.rule.baseIndividual_rule.Base, follows Ordium.Profile.LML.rule.baseIndividual_rule.AO__2.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "X"}
+    },
+    AO {hasName "coveredBy_rule", hasPredicate Ordium.Profile.LML.rule.coveredBy,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Partition, fills Ordium.Profile.LML.rule.coveredBy_rule.Partition},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.X, fills Ordium.Profile.LML.rule.coveredBy_rule.X, follows Ordium.Profile.LML.rule.coveredBy_rule.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Partition, fills Ordium.Profile.LML.rule.coveredBy_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Base, fills Ordium.Profile.LML.rule.coveredBy_rule.Base, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.baseIndividual, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.X, fills Ordium.Profile.LML.rule.coveredBy_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Base, fills Ordium.Profile.LML.rule.coveredBy_rule.Base, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.partitionBranch, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Partition, fills Ordium.Profile.LML.rule.coveredBy_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Member, fills Ordium.Profile.LML.rule.coveredBy_rule.Member, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__3.AG__1}
+      },
+      AO {hasName "AO__4", hasPredicate Ordium.Profile.LML.rule.iofPlus, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__3,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.X, fills Ordium.Profile.LML.rule.coveredBy_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.coveredBy_rule.Member, fills Ordium.Profile.LML.rule.coveredBy_rule.Member, follows Ordium.Profile.LML.rule.coveredBy_rule.AO__4.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Member"},
+      PM {hasName "Partition"},
+      PM {hasName "X"}
+    },
+    AO {hasName "err_partition_bad_member_rule", hasPredicate Ordium.Profile.LML.rule.err_partition_bad_member,
+      AG {hasName "partition", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Partition},
+      AG {hasName "baseType", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Base, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Base, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.partition},
+      AG {hasName "member", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Member, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Member, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.baseType},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Base, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Base, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.iof, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Member, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Member},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Partition, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, isNegated true, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Member, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Member},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_bad_member_rule.Base, fills Ordium.Profile.LML.rule.err_partition_bad_member_rule.Base, follows Ordium.Profile.LML.rule.err_partition_bad_member_rule.AO__3.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Member"},
+      PM {hasName "Partition"}
+    },
+    AO {hasName "err_partition_missing_rule", hasPredicate Ordium.Profile.LML.rule.err_partition_missing,
+      AG {hasName "partition", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_missing_rule.Partition},
+      AG {hasName "baseType", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.Base, fills Ordium.Profile.LML.rule.err_partition_missing_rule.Base, follows Ordium.Profile.LML.rule.err_partition_missing_rule.partition},
+      AG {hasName "individual", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.X, fills Ordium.Profile.LML.rule.err_partition_missing_rule.X, follows Ordium.Profile.LML.rule.err_partition_missing_rule.baseType},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_missing_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.Base, fills Ordium.Profile.LML.rule.err_partition_missing_rule.Base, follows Ordium.Profile.LML.rule.err_partition_missing_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.baseIndividual, follows Ordium.Profile.LML.rule.err_partition_missing_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.X, fills Ordium.Profile.LML.rule.err_partition_missing_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.Base, fills Ordium.Profile.LML.rule.err_partition_missing_rule.Base, follows Ordium.Profile.LML.rule.err_partition_missing_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.coveredBy, isNegated true, follows Ordium.Profile.LML.rule.err_partition_missing_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_missing_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_missing_rule.X, fills Ordium.Profile.LML.rule.err_partition_missing_rule.X, follows Ordium.Profile.LML.rule.err_partition_missing_rule.AO__3.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Partition"},
+      PM {hasName "X"}
+    },
+    AO {hasName "err_partition_overlap_rule", hasPredicate Ordium.Profile.LML.rule.err_partition_overlap,
+      AG {hasName "partition", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition},
+      AG {hasName "individual", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.X, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.X, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.partition},
+      AG {hasName "firstMember", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.individual},
+      AG {hasName "secondMember", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.firstMember},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.Base, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.Base, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.baseIndividual, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.X, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.Base, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.Base, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.partitionBranch, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__3.AG__1}
+      },
+      AO {hasName "AO__4", hasPredicate Ordium.Profile.LML.rule.partitionBranch, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__3,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__4.AG__1}
+      },
+      AO {hasName "AO__5", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__4,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M1},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__5.AG__1}
+      },
+      AO {hasName "AO__6", hasPredicate Ordium.Profile.LML.rule.iofPlus, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__5,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.X, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M1, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__6.AG__1}
+      },
+      AO {hasName "AO__7", hasPredicate Ordium.Profile.LML.rule.iofPlus, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__6,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.X, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_overlap_rule.AO__7.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "M1"},
+      PM {hasName "M2"},
+      PM {hasName "Partition"},
+      PM {hasName "X"}
+    },
+    AO {hasName "err_partition_subtype_overlap_rule", hasPredicate Ordium.Profile.LML.rule.err_partition_subtype_overlap,
+      AG {hasName "partition", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition},
+      AG {hasName "overlappingSubtype", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.BadType, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.BadType, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.partition},
+      AG {hasName "firstMember", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.overlappingSubtype},
+      AG {hasName "secondMember", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.firstMember},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Base, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Base, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.partitionBranch, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.partitionBranch, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.Partition},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__3.AG__1}
+      },
+      AO {hasName "AO__4", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__3,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__4.AG__1}
+      },
+      AO {hasName "AO__5", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__4,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.BadType, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.BadType},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M1, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__5.AG__1}
+      },
+      AO {hasName "AO__6", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__5,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.BadType, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.BadType},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Profile.LML.rule.err_partition_subtype_overlap_rule.AO__6.AG__1}
+      },
+      PM {hasName "BadType"},
+      PM {hasName "Base"},
+      PM {hasName "M1"},
+      PM {hasName "M2"},
+      PM {hasName "Partition"}
+    },
+    AO {hasName "err_partition_specialization_rule", hasPredicate Ordium.Profile.LML.rule.err_partition_specialization,
+      AG {hasName "specialPartition", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P1, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P1},
+      AG {hasName "generalPartition", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.specialPartition},
+      AG {hasName "baseType", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.Base, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.Base, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.generalPartition},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitions,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P1, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P1},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.Base, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.Base, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.partitions, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P2},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.Base, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.Base, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P1, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P1},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__3.AG__1}
+      },
+      AO {hasName "AO__4", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__3,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P1, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P1},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, fills Ordium.Profile.LML.rule.err_partition_specialization_rule.P2, follows Ordium.Profile.LML.rule.err_partition_specialization_rule.AO__4.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "P1"},
+      PM {hasName "P2"}
+    },
+    AO {hasName "err_categorizer_bad_member_rule", hasPredicate Ordium.Profile.LML.rule.err_categorizer_bad_member,
+      AG {hasName "categorizer", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Categorizer, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Categorizer},
+      AG {hasName "baseType", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Base, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Base, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.categorizer},
+      AG {hasName "member", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Member, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Member, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.baseType},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.categorizes,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Categorizer, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Categorizer},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Base, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Base, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.iof, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Member, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Member},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Categorizer, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Categorizer, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, isNegated true, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Member, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Member},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Base, fills Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.Base, follows Ordium.Profile.LML.rule.err_categorizer_bad_member_rule.AO__3.AG__1}
+      },
+      PM {hasName "Base"},
+      PM {hasName "Categorizer"},
+      PM {hasName "Member"}
+    },
+    AO {hasName "nestedPartitionMember_rule", hasPredicate Ordium.Profile.LML.rule.nestedPartitionMember,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Partition, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Partition},
+      AG {hasName "AG__2", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AG__1, bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitionMember,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Partition, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Partition},
+        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member}
+      },
+      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__1, hasPredicate Ordium.Profile.LML.rule.partitionMember,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Partition, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Partition},
+        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.SuperMember, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.SuperMember}
+      },
+      AO {hasName "AO__3", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__2, isExplicit false, hasPredicate Ordium.Core.rule.neq,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member},
+        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__3.AG__1, bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.SuperMember, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.SuperMember}
+      },
+      AO {hasName "AO__4", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__3, hasPredicate Ordium.Profile.LML.rule.specialisesPlus,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.Member},
+        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.nestedPartitionMember_rule.AO__4.AG__1, bindsTo Ordium.Profile.LML.rule.nestedPartitionMember_rule.SuperMember, fills Ordium.Profile.LML.rule.nestedPartitionMember_rule.SuperMember}
+      },
+      PM {hasName "Member"},
+      PM {hasName "Partition"},
+      PM {hasName "SuperMember"}
+    },
+    AO {hasName "partitionBranch_rule", hasPredicate Ordium.Profile.LML.rule.partitionBranch,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionBranch_rule.Partition, fills Ordium.Profile.LML.rule.partitionBranch_rule.Partition},
+      AG {hasName "AG__2", follows Ordium.Profile.LML.rule.partitionBranch_rule.AG__1, bindsTo Ordium.Profile.LML.rule.partitionBranch_rule.Member, fills Ordium.Profile.LML.rule.partitionBranch_rule.Member},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.partitionMember,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionBranch_rule.Partition, fills Ordium.Profile.LML.rule.partitionBranch_rule.Partition},
+        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.partitionBranch_rule.AO__1.AG__1, bindsTo Ordium.Profile.LML.rule.partitionBranch_rule.Member, fills Ordium.Profile.LML.rule.partitionBranch_rule.Member}
+      },
+      AO {hasName "AO__2", follows Ordium.Profile.LML.rule.partitionBranch_rule.AO__1, isNegated true, hasPredicate Ordium.Profile.LML.rule.nestedPartitionMember,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.LML.rule.partitionBranch_rule.Partition, fills Ordium.Profile.LML.rule.partitionBranch_rule.Partition},
+        AG {hasName "AG__2", follows Ordium.Profile.LML.rule.partitionBranch_rule.AO__2.AG__1, bindsTo Ordium.Profile.LML.rule.partitionBranch_rule.Member, fills Ordium.Profile.LML.rule.partitionBranch_rule.Member}
+      },
+      PM {hasName "Member"},
+      PM {hasName "Partition"}
+    }
   }
 }
