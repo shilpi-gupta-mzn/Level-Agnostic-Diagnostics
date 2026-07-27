@@ -1,0 +1,11 @@
+Categorisation(?X) :- hasLinguisticType(?X, Categorisation) .
+categorisationGeneral(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, true), hasRelatum(?I, ?X) .
+categorisationSpecial(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, false), hasRelatum(?I, ?X) .
+Clabject(?X) :- Entity(?X) .
+Entity(?X) :- hasLinguisticType(?X, Entity) .
+Intercalation(?X) :- hasLinguisticType(?X, Intercalation) .
+Marker(?X) :- hasLinguisticType(?X, Marker) .
+markedRef(?X, ?Tag, ?Target) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Tag), refersTo(?M, ?Target) .
+marked(?X, ?Tag) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Tag) .
+Participation(?X) :- hasLinguisticType(?X, Participation) .
+Relationship(?X) :- hasLinguisticType(?X, Relationship) .
