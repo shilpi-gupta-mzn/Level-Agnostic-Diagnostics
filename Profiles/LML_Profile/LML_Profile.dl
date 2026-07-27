@@ -1,10 +1,27 @@
-effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P).
-violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1.
-specialises(?Sub, ?Base) :- categorisationGeneral(?C, ?Base), categorisationSpecial(?C, ?Sub).
-specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Base).
-specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Mid), specialisesPlus(?Mid, ?Base).
-subtypeOrSame(?Sub, ?Base) :- specialisesPlus(?Sub, ?Base).
-iof(?X, ?T) :- hasDeclaredType(?X, ?T).
-iofPlus(?X, ?T) :- iof(?X, ?T).
-iofPlus(?X, ?Super) :- iof(?X, ?T), specialisesPlus(?T, ?Super).
-err_non_adjacent_iof(?X, ?T, ?PX, ?PT) :- iof(?X, ?T), effectivePotency(?X, ?PX), effectivePotency(?T, ?PT), ?PT != ?PX + 1.
+% ============================================================================
+% A) MINIMIZED SOURCE-DEFINITION FACTS
+% ============================================================================
+hasCustodian(Ordium.Profile.LML, Ordium.Profile) .
+hasCustodian(Ordium.Profile.LML.DiagnosticSeverity, Ordium.Profile.LML) .
+hasCustodian(Ordium.Profile.LML.DiagnosticSeverity.error, Ordium.Profile.LML.DiagnosticSeverity) .
+hasLinguisticType(Ordium.Profile.LML, Entity) .
+hasLinguisticType(Ordium.Profile.LML.DiagnosticSeverity, DataType) .
+hasLinguisticType(Ordium.Profile.LML.DiagnosticSeverity.error, DataValue) .
+hasName(Ordium.Profile.LML, LML) .
+hasName(Ordium.Profile.LML.DiagnosticSeverity, DiagnosticSeverity) .
+hasName(Ordium.Profile.LML.DiagnosticSeverity.error, error) .
+hasNote(Ordium.Profile.LML, "Minimized level-agnostic classification profile for the ER diagnostic reproduction. It contains the required classification, potency, MLT-vocabulary interpretation, and partition diagnostic rules.") .
+
+% ============================================================================
+% B) EXECUTABLE FACTS AND RULES OWNED BY THIS SOURCE
+% ============================================================================
+effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P) .
+violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1 .
+specialises(?Sub, ?Base) :- categorisationGeneral(?C, ?Base), categorisationSpecial(?C, ?Sub) .
+specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Base) .
+specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Mid), specialisesPlus(?Mid, ?Base) .
+subtypeOrSame(?Sub, ?Base) :- specialisesPlus(?Sub, ?Base) .
+iof(?X, ?T) :- hasDeclaredType(?X, ?T) .
+iofPlus(?X, ?T) :- iof(?X, ?T) .
+iofPlus(?X, ?Super) :- iof(?X, ?T), specialisesPlus(?T, ?Super) .
+err_non_adjacent_iof(?X, ?T, ?PX, ?PT) :- iof(?X, ?T), effectivePotency(?X, ?PX), effectivePotency(?T, ?PT), ?PT != ?PX + 1 .
