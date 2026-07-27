@@ -1,0 +1,682 @@
+EN {hasName "ER2026OntoUMLMLTDiagnostics",
+  hasFQN "Ordium.Library.ER2026OntoUMLMLTDiagnostics",
+  hasNote "Fixture-specific diagnostic ware slice used by the level-agnostic diagnostics reproduction artifact.",
+  hasCustodian Ordium.Library, hasLinguisticType Ordium.Core.Entity,
+  DT {hasName "DiagnosticSeverity",
+    DV {hasName "error"},
+    DV {hasName "warning"}
+  },
+  DT {hasName "DiagnosticReason",
+    DV {hasName "commonIdentityProvider",
+      hasNote "The endpoint types share an identity provider."}
+  },
+  EN {hasName "rule",
+    AO {hasName "baseIndividual", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual},
+    AO {hasName "binOverCase", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOverCase},
+    AO {hasName "categorizes", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes},
+    AO {hasName "coveredBy", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy},
+    AO {hasName "endType", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType},
+    AO {hasName "err_categorizer_bad_member", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member, hasNote "A classifier is classified by a categorizer but does not specialize the categorized base type.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_kind_bad_ancestor", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor, hasNote "An OntoUML Kind specializes an ancestor carrying a forbidden stereotype.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_non_adjacent_iof", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof, hasNote "A direct ontological classification skips the required one-step potency transition.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_partition_bad_member", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member, hasNote "A classifier is classified by a partition but does not specialize the partitioned base type.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_partition_missing", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing, hasNote "An individual of the partitioned base type is not covered by any member of the partition.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_partition_overlap", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap, hasNote "An individual is covered by two distinct top-level branches of a disjoint partition.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_partition_specialization", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization, hasNote "One partition specializes another partition of the same base type.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "err_partition_subtype_overlap", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap, hasNote "A subtype specializes two distinct top-level branches of a disjoint partition.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.error}
+        },
+    AO {hasName "explicitlyDisjoint", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.explicitlyDisjoint},
+    AO {hasName "forbiddenKindAncestorTag", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag},
+    AO {hasName "hasIdentityProvider", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider},
+    AO {hasName "identityProvider", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider},
+    AO {hasName "iof", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof},
+    AO {hasName "iofPlus", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus},
+    AO {hasName "nestedPartitionMember", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember},
+    AO {hasName "ontoKind", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind},
+    AO {hasName "partitionBranch", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch},
+    AO {hasName "partitionMember", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember},
+    AO {hasName "partitions", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions},
+    AO {hasName "relationEndPair", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair},
+    AO {hasName "sameIdentityProvider", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider},
+    AO {hasName "sortal", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal},
+    AO {hasName "specialises", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises},
+    AO {hasName "specialisesPlus", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus},
+    AO {hasName "subtypeOrSame", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame},
+    AO {hasName "warn_bin_over_case", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case, hasNote "The endpoint types of a relationship may overlap for the reported structural reason and support.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.warning}
+        },
+    AO {hasName "warn_bin_over_witness", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness, hasNote "An authored individual instantiates both endpoint types of a relationship.",
+          MK {hasName "severity", hasTag Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticSeverity.warning}
+        },
+    AO {hasName "specialises_direct", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Sub},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Categorisation.rule.categorisationGeneral,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.C, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.C},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Core.Categorisation.rule.categorisationSpecial, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.C, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.C},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.Sub, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises_direct.AO__2.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "C"},
+          PM {hasName "Sub"}
+        },
+    AO {hasName "specialisesPlus_direct", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Sub},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Sub},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_direct.AO__1.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Sub"}
+        },
+    AO {hasName "specialisesPlus_recursive", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Sub},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialises,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Sub},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Mid, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Mid, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Mid, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Mid},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus_recursive.AO__2.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Mid"},
+          PM {hasName "Sub"}
+        },
+    AO {hasName "subtypeOrSame_specialisation", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Sub},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Sub, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Sub},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame_specialisation.AO__1.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Sub"}
+        },
+    AO {hasName "iof_declared", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.X},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Clabject.hasDeclaredType,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_declared.AO__1.AG__1}
+          },
+          PM {hasName "T"},
+          PM {hasName "X"}
+        },
+    AO {hasName "iof_marker", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.X},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.markedRef,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.X},
+            AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.RelationStereotype.instantiation, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.AO__1.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof_marker.AO__1.AG__2}
+          },
+          PM {hasName "T"},
+          PM {hasName "X"}
+        },
+    AO {hasName "iofPlus_direct", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.X},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_direct.AO__1.AG__1}
+          },
+          PM {hasName "T"},
+          PM {hasName "X"}
+        },
+    AO {hasName "iofPlus_specialisation", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.X},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.Super, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.Super, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.T},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.Super, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.Super, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus_specialisation.AO__2.AG__1}
+          },
+          PM {hasName "Super"},
+          PM {hasName "T"},
+          PM {hasName "X"}
+        },
+    AO {hasName "err_non_adjacent_iof_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof,
+          AG {hasName "element", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.X},
+          AG {hasName "directType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.element},
+          AG {hasName "elementPotency", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PX, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PX, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.directType},
+          AG {hasName "typePotency", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PT, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PT, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.elementPotency},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.effectivePotency, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PX, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PX, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.effectivePotency, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.T},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PT, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PT, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__3, isExplicit false, hasPredicate Ordium.Core.rule.neq,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PT, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PT},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__4.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__4.AG__2.plus__1,
+              AO {hasName "plus__1", isExplicit false, hasPredicate Ordium.Core.rule.plus,
+                AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PX, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.PX},
+                AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_non_adjacent_iof_rule.AO__4.AG__2.plus__1.AG__1, bindsTo Ordium.Core.DataType.Integer.One}
+              }
+            }
+          },
+          PM {hasName "PT"},
+          PM {hasName "PX"},
+          PM {hasName "T"},
+          PM {hasName "X"}
+        },
+    AO {hasName "ontoKind_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind_rule.T},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.marked,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind_rule.T},
+            AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.ClassStereotype.kind, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind_rule.AO__1.AG__1}
+          },
+          PM {hasName "T"}
+        },
+    AO {hasName "identityProvider_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.T},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.marked,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.T},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.Tag, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.ClassFamily.identityProvider, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider_rule.Tag}
+          },
+          PM {hasName "T"},
+          PM {hasName "Tag"}
+        },
+    AO {hasName "sortal_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.T},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.marked,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.T},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.Tag, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal_rule.Tag}
+          },
+          PM {hasName "T"},
+          PM {hasName "Tag"}
+        },
+    AO {hasName "err_kind_bad_ancestor_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor,
+          AG {hasName "kind", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Kind, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Kind},
+          AG {hasName "ancestor", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Ancestor, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Ancestor, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.kind},
+          AG {hasName "forbiddenTag", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Tag, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.ancestor},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.ontoKind,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Kind, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Kind}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Kind, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Kind},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Ancestor, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Ancestor, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Core.Marker.rule.marked, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Ancestor, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Ancestor},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Tag, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_kind_bad_ancestor_rule.Tag}
+          },
+          PM {hasName "Ancestor"},
+          PM {hasName "Kind"},
+          PM {hasName "Tag"}
+        },
+    AO {hasName "endType_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.R},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AG__1},
+          AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AG__2},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Relationship,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.R}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Core.Participation, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Core.hasCustodian, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.R, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", hasPredicate Ordium.Core.Mediation.hasRelatum, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.P},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.T, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType_rule.AO__4.AG__1}
+          },
+          PM {hasName "P"},
+          PM {hasName "R"},
+          PM {hasName "T"}
+        },
+    AO {hasName "relationEndPair_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.R},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AG__1},
+          AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AG__2},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.R},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__1.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__1.AG__2}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.endType, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.R},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__2.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__2.AG__2}
+          },
+          AO {hasName "AO__3", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.P2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair_rule.AO__3.AG__1}
+          },
+          PM {hasName "End1"},
+          PM {hasName "End2"},
+          PM {hasName "P1"},
+          PM {hasName "P2"},
+          PM {hasName "R"}
+        },
+    AO {hasName "hasIdentityProvider_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.T},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.identityProvider,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.K}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.subtypeOrSame, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.T, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.T},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider_rule.AO__2.AG__1}
+          },
+          PM {hasName "K"},
+          PM {hasName "T"}
+        },
+    AO {hasName "sameIdentityProvider_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.A, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.A},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.B, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.B, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.AG__1},
+          AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.AG__2},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.A, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.A},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.hasIdentityProvider, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.B, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.B},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider_rule.AO__2.AG__1}
+          },
+          PM {hasName "A"},
+          PM {hasName "B"},
+          PM {hasName "K"}
+        },
+    AO {hasName "binOver_commonIdentityProvider", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOverCase,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AG__1},
+          AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AG__2},
+          AG {hasName "AG__4", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.commonIdentityProvider, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AG__3},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sortal, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target}
+          },
+          AO {hasName "AO__3", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.sameIdentityProvider, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__4.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.K, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.K, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__4.AG__2}
+          },
+          AO {hasName "AO__5", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.explicitlyDisjoint, isNegated true, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__4,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Source},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.Target, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOver_commonIdentityProvider.AO__5.AG__1}
+          },
+          PM {hasName "K"},
+          PM {hasName "Source"},
+          PM {hasName "Target"}
+        },
+    AO {hasName "warn_bin_over_case_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case,
+          AG {hasName "relation", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.R},
+          AG {hasName "firstEndpointType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.relation},
+          AG {hasName "secondEndpointType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.firstEndpointType},
+          AG {hasName "support", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Support, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Support, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.secondEndpointType},
+          AG {hasName "reason", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Reason, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Reason, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.support},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.relationEndPair,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.R},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.AO__1.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.AO__1.AG__2}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.binOverCase, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.AO__2.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Support, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Support, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.AO__2.AG__2},
+            AG {hasName "AG__4", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Reason, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.Reason, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case_rule.AO__2.AG__3}
+          },
+          PM {hasName "End1"},
+          PM {hasName "End2"},
+          PM {hasName "R"},
+          PM {hasName "Reason"},
+          PM {hasName "Support"}
+        },
+    AO {hasName "warn_bin_over_witness_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness,
+          AG {hasName "relation", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.R},
+          AG {hasName "firstEndpointType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.relation},
+          AG {hasName "secondEndpointType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.firstEndpointType},
+          AG {hasName "individualWitness", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.X, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.secondEndpointType},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_case,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.R, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.R},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__1.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End1},
+            AG {hasName "AG__3", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__1.AG__2, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End2},
+            AG {hasName "AG__4", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__1.AG__3, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.CaseSupport, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.CaseSupport},
+            AG {hasName "AG__5", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__1.AG__4, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.CaseReason, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.CaseReason}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.End2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.warn_bin_over_witness_rule.AO__3.AG__1}
+          },
+          PM {hasName "End1"},
+          PM {hasName "End2"},
+          PM {hasName "R"},
+          PM {hasName "X"},
+          PM {hasName "CaseSupport", isExistential true},
+          PM {hasName "CaseReason", isExistential true}
+        },
+    AO {hasName "partitions_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Partition},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.markedRef,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Profile.MLT.PowertypeRelation.partitions, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.AO__1.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions_rule.AO__1.AG__2}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Partition"}
+        },
+    AO {hasName "categorizes_direct", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Categorizer, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Categorizer},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.markedRef,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Categorizer, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Categorizer},
+            AG {hasName "AG__2", bindsTo Ordium.Profile.MLT.PowertypeRelation.categorizes, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.AO__1.AG__1},
+            AG {hasName "AG__3", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes_direct.AO__1.AG__2}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Categorizer"}
+        },
+    AO {hasName "partitionMember_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Partition},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Member, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Member},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Partition, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Member},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember_rule.AO__3.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Member"},
+          PM {hasName "Partition"}
+        },
+    AO {hasName "baseIndividual_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.X},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Profile.LML.rule.effectivePotency,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Core.DataType.Integer.Zero, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual_rule.AO__2.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "X"}
+        },
+    AO {hasName "coveredBy_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Partition},
+          AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.X, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AG__1},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Member, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.Member, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy_rule.AO__4.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Member"},
+          PM {hasName "Partition"},
+          PM {hasName "X"}
+        },
+    AO {hasName "err_partition_bad_member_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member,
+          AG {hasName "partition", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Partition},
+          AG {hasName "baseType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.partition},
+          AG {hasName "member", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Member, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.baseType},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Member},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Partition, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, isNegated true, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Member},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_bad_member_rule.AO__3.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Member"},
+          PM {hasName "Partition"}
+        },
+    AO {hasName "err_partition_missing_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing,
+          AG {hasName "partition", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Partition},
+          AG {hasName "baseType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.partition},
+          AG {hasName "individual", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.X, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.baseType},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.coveredBy, isNegated true, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.X, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_missing_rule.AO__3.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Partition"},
+          PM {hasName "X"}
+        },
+    AO {hasName "err_partition_overlap_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap,
+          AG {hasName "partition", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition},
+          AG {hasName "individual", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.partition},
+          AG {hasName "firstMember", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.individual},
+          AG {hasName "secondMember", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.firstMember},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.baseIndividual, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__4.AG__1}
+          },
+          AO {hasName "AO__5", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__4,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__5.AG__1}
+          },
+          AO {hasName "AO__6", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__5,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__6.AG__1}
+          },
+          AO {hasName "AO__7", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iofPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__6,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.X},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_overlap_rule.AO__7.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "M1"},
+          PM {hasName "M2"},
+          PM {hasName "Partition"},
+          PM {hasName "X"}
+        },
+    AO {hasName "err_partition_subtype_overlap_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap,
+          AG {hasName "partition", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition},
+          AG {hasName "overlappingSubtype", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.BadType, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.BadType, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.partition},
+          AG {hasName "firstMember", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.overlappingSubtype},
+          AG {hasName "secondMember", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.firstMember},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.Partition},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__4.AG__1}
+          },
+          AO {hasName "AO__5", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__4,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.BadType, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.BadType},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M1, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__5.AG__1}
+          },
+          AO {hasName "AO__6", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__5,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.BadType, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.BadType},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.M2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_subtype_overlap_rule.AO__6.AG__1}
+          },
+          PM {hasName "BadType"},
+          PM {hasName "Base"},
+          PM {hasName "M1"},
+          PM {hasName "M2"},
+          PM {hasName "Partition"}
+        },
+    AO {hasName "err_partition_specialization_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization,
+          AG {hasName "specialPartition", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1},
+          AG {hasName "generalPartition", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.specialPartition},
+          AG {hasName "baseType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.generalPartition},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitions, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__3.AG__1}
+          },
+          AO {hasName "AO__4", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__3,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P1},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.P2, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_partition_specialization_rule.AO__4.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "P1"},
+          PM {hasName "P2"}
+        },
+    AO {hasName "err_categorizer_bad_member_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member,
+          AG {hasName "categorizer", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Categorizer, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Categorizer},
+          AG {hasName "baseType", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.categorizer},
+          AG {hasName "member", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Member, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.baseType},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.categorizes,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Categorizer, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Categorizer},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.AO__1.AG__1}
+          },
+          AO {hasName "AO__2", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.iof, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.AO__1,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Member},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Categorizer, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Categorizer, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.AO__2.AG__1}
+          },
+          AO {hasName "AO__3", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus, isNegated true, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.AO__2,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Member},
+            AG {hasName "AG__2", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Base, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.Base, follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.err_categorizer_bad_member_rule.AO__3.AG__1}
+          },
+          PM {hasName "Base"},
+          PM {hasName "Categorizer"},
+          PM {hasName "Member"}
+        },
+    AO {hasName "forbiddenKindAncestorTag_sortal", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag_sortal.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag_sortal.Tag},
+          AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag_sortal.Tag, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.forbiddenKindAncestorTag_sortal.Tag}
+          },
+          PM {hasName "Tag"}
+        },
+    AO {hasName "nestedPartitionMember_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Partition},
+          AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Partition},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__1.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member}
+          },
+          AO {hasName "AO__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__1, hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Partition},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__2.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.SuperMember, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.SuperMember}
+          },
+          AO {hasName "AO__3", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__2, isExplicit false, hasPredicate Ordium.Core.rule.neq,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__3.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.SuperMember, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.SuperMember}
+          },
+          AO {hasName "AO__4", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__3, hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.specialisesPlus,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.Member},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.AO__4.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.SuperMember, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember_rule.SuperMember}
+          },
+          PM {hasName "Member"},
+          PM {hasName "Partition"},
+          PM {hasName "SuperMember"}
+        },
+    AO {hasName "partitionBranch_rule", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch,
+          AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Partition},
+          AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Member},
+          AO {hasName "AO__1", hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionMember,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Partition},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.AO__1.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Member}
+          },
+          AO {hasName "AO__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.AO__1, isNegated true, hasPredicate Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.nestedPartitionMember,
+            AG {hasName "AG__1", bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Partition, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Partition},
+            AG {hasName "AG__2", follows Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.AO__2.AG__1, bindsTo Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Member, fills Ordium.Library.ER2026OntoUMLMLTDiagnostics.rule.partitionBranch_rule.Member}
+          },
+          PM {hasName "Member"},
+          PM {hasName "Partition"}
+        }
+  }
+}
