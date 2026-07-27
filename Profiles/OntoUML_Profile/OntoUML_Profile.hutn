@@ -1,27 +1,229 @@
-EN {hasName "OntoUML", hasFQN "Ordium.Profile.OntoUML",
-  hasNote "Fixture-specific OntoUML vocabulary and stereotype-family facts used by the level-agnostic diagnostics reproduction artifact.",
-  hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
-  DT {hasName "ClassStereotype",
-    DV {hasName "kind", hasNote "Rigid sortal that supplies an identity principle."},
+// Minimized OntoUML profile source.
+// Contains source-definition facts, three executable family facts, and eleven executable rules.
+
+EN {hasName "OntoUML", hasFQN "Ordium.Profile.OntoUML", hasNote "Minimized OntoUML vocabulary, family facts, and diagnostic rules required by the ER reproduction.", hasCustodian Ordium.Profile, hasLinguisticType Ordium.Core.Entity,
+  DT {hasName "ClassStereotype", hasFQN "Ordium.Profile.OntoUML.ClassStereotype", hasNote "OntoUML class stereotype values. The DataValue name is the default lexeme.",
+    DV {hasName "kind", hasNote "Rigid sortal that supplies an identity principle for its instances."},
     DV {hasName "role", hasNote "Anti-rigid sortal instantiated in a relational context."},
     DV {hasName "subkind", hasNote "Rigid specialization of an identity provider."}
   },
-  DT {hasName "ClassFamily",
-    DV {hasName "sortal", hasNote "Predicate identity for the sortal stereotype family."},
-    DV {hasName "identityProvider", hasNote "Predicate identity for stereotypes that provide identity."}
+  DT {hasName "ClassFamily", hasFQN "Ordium.Profile.OntoUML.ClassFamily", hasNote "Derived families used as profile predicates to capture the OntoUML class stereotype hierarchy.",
+    DV {hasName "sortal", hasNote "Stereotype for class types whose instances share an identity principle."},
+    DV {hasName "identityProvider", hasNote "Sortal stereotype that supplies an identity principle."}
   },
-  DT {hasName "RelationStereotype",
-    DV {hasName "instantiation", hasNote "Profile relation used for explicit additional direct classification."}
+  DT {hasName "RelationStereotype", hasFQN "Ordium.Profile.OntoUML.RelationStereotype", hasNote "OntoUML relation stereotype values. The DataValue name is the default lexeme.",
+    DV {hasName "instantiation", hasNote "Instantiation relation stereotype."}
   },
-  EN {hasName "rule",
+  DT {hasName "DiagnosticSeverity",
+    DV {hasName "error"},
+    DV {hasName "warning"}
+  },
+  DT {hasName "DiagnosticReason",
+    DV {hasName "commonIdentityProvider", hasNote "The endpoint types share the reported identity provider and are not explicitly disjoint."}
+  },
+  EN {hasName "rule", hasNote "Authoritative reified OntoUML family facts and diagnostic rules used by the integrated reproduction.",
     AO {hasName "kindIsSortal", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal, hasNote "OntoUML class stereotype kind is a member of class family sortal.",
-          AG {hasName "value", bindsTo Ordium.Profile.OntoUML.ClassStereotype.kind}
-        },
+      AG {hasName "value", bindsTo Ordium.Profile.OntoUML.ClassStereotype.kind}
+    },
     AO {hasName "roleIsSortal", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal, hasNote "OntoUML class stereotype role is a member of class family sortal.",
-          AG {hasName "value", bindsTo Ordium.Profile.OntoUML.ClassStereotype.role}
-        },
+      AG {hasName "value", bindsTo Ordium.Profile.OntoUML.ClassStereotype.role}
+    },
     AO {hasName "kindIsIdentityProvider", hasPredicate Ordium.Profile.OntoUML.ClassFamily.identityProvider, hasNote "OntoUML class stereotype kind is a member of class family identityProvider.",
-          AG {hasName "value", bindsTo Ordium.Profile.OntoUML.ClassStereotype.kind}
-        }
+      AG {hasName "value", bindsTo Ordium.Profile.OntoUML.ClassStereotype.kind}
+    },
+    AO {hasName "ontoKind", hasPredicate Ordium.Profile.OntoUML.rule.ontoKind},
+    AO {hasName "err_kind_bad_ancestor", hasPredicate Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor, hasNote "An OntoUML Kind specializes an ancestor carrying a forbidden stereotype.",
+      MK {hasName "severity", hasTag Ordium.Profile.OntoUML.DiagnosticSeverity.error}
+    },
+    AO {hasName "forbiddenKindAncestorTag", hasPredicate Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag},
+    AO {hasName "hasIdentityProvider", hasPredicate Ordium.Profile.OntoUML.rule.hasIdentityProvider},
+    AO {hasName "sameIdentityProvider", hasPredicate Ordium.Profile.OntoUML.rule.sameIdentityProvider},
+    AO {hasName "binOverCase", hasPredicate Ordium.Profile.OntoUML.rule.binOverCase},
+    AO {hasName "warn_bin_over_case", hasPredicate Ordium.Profile.OntoUML.rule.warn_bin_over_case, hasNote "The endpoint types of a relationship may overlap for the reported structural reason and support.",
+      MK {hasName "severity", hasTag Ordium.Profile.OntoUML.DiagnosticSeverity.warning}
+    },
+    AO {hasName "warn_bin_over_witness", hasPredicate Ordium.Profile.OntoUML.rule.warn_bin_over_witness, hasNote "An authored individual instantiates both endpoint types of a relationship.",
+      MK {hasName "severity", hasTag Ordium.Profile.OntoUML.DiagnosticSeverity.warning}
+    },
+    AO {hasName "explicitlyDisjoint", hasPredicate Ordium.Profile.OntoUML.rule.explicitlyDisjoint},
+    AO {hasName "iof_marker", hasPredicate Ordium.Profile.LML.rule.iof,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.iof_marker.X, fills Ordium.Profile.OntoUML.rule.iof_marker.X},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.iof_marker.T, fills Ordium.Profile.OntoUML.rule.iof_marker.T, follows Ordium.Profile.OntoUML.rule.iof_marker.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.markedRef,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.iof_marker.X, fills Ordium.Profile.OntoUML.rule.iof_marker.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.RelationStereotype.instantiation, follows Ordium.Profile.OntoUML.rule.iof_marker.AO__1.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Profile.OntoUML.rule.iof_marker.T, fills Ordium.Profile.OntoUML.rule.iof_marker.T, follows Ordium.Profile.OntoUML.rule.iof_marker.AO__1.AG__2}
+      },
+      PM {hasName "T"},
+      PM {hasName "X"}
+    },
+    AO {hasName "ontoKind_rule", hasPredicate Ordium.Profile.OntoUML.rule.ontoKind,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.ontoKind_rule.T, fills Ordium.Profile.OntoUML.rule.ontoKind_rule.T},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.marked,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.ontoKind_rule.T, fills Ordium.Profile.OntoUML.rule.ontoKind_rule.T},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.ClassStereotype.kind, follows Ordium.Profile.OntoUML.rule.ontoKind_rule.AO__1.AG__1}
+      },
+      PM {hasName "T"}
+    },
+    AO {hasName "identityProvider_rule", hasPredicate Ordium.Profile.OntoUML.ClassFamily.identityProvider,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.identityProvider_rule.T, fills Ordium.Profile.OntoUML.rule.identityProvider_rule.T},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.marked,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.identityProvider_rule.T, fills Ordium.Profile.OntoUML.rule.identityProvider_rule.T},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.identityProvider_rule.Tag, fills Ordium.Profile.OntoUML.rule.identityProvider_rule.Tag, follows Ordium.Profile.OntoUML.rule.identityProvider_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.ClassFamily.identityProvider, follows Ordium.Profile.OntoUML.rule.identityProvider_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.identityProvider_rule.Tag, fills Ordium.Profile.OntoUML.rule.identityProvider_rule.Tag}
+      },
+      PM {hasName "T"},
+      PM {hasName "Tag"}
+    },
+    AO {hasName "sortal_rule", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.sortal_rule.T, fills Ordium.Profile.OntoUML.rule.sortal_rule.T},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Marker.rule.marked,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.sortal_rule.T, fills Ordium.Profile.OntoUML.rule.sortal_rule.T},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.sortal_rule.Tag, fills Ordium.Profile.OntoUML.rule.sortal_rule.Tag, follows Ordium.Profile.OntoUML.rule.sortal_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal, follows Ordium.Profile.OntoUML.rule.sortal_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.sortal_rule.Tag, fills Ordium.Profile.OntoUML.rule.sortal_rule.Tag}
+      },
+      PM {hasName "T"},
+      PM {hasName "Tag"}
+    },
+    AO {hasName "err_kind_bad_ancestor_rule", hasPredicate Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor,
+      AG {hasName "kind", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Kind, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Kind},
+      AG {hasName "ancestor", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Ancestor, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Ancestor, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.kind},
+      AG {hasName "forbiddenTag", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Tag, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Tag, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.ancestor},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.rule.ontoKind,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Kind, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Kind}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.specialisesPlus, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Kind, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Kind},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Ancestor, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Ancestor, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Core.Marker.rule.marked, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Ancestor, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Ancestor},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Tag, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Tag, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.AO__3.AG__1}
+      },
+      AO {hasName "AO__4", hasPredicate Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag, follows Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.AO__3,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Tag, fills Ordium.Profile.OntoUML.rule.err_kind_bad_ancestor_rule.Tag}
+      },
+      PM {hasName "Ancestor"},
+      PM {hasName "Kind"},
+      PM {hasName "Tag"}
+    },
+    AO {hasName "hasIdentityProvider_rule", hasPredicate Ordium.Profile.OntoUML.rule.hasIdentityProvider,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.T, fills Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.T},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.K, fills Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.K, follows Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.AG__1},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.ClassFamily.identityProvider,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.K, fills Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.K}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.subtypeOrSame, follows Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.T, fills Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.T},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.K, fills Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.K, follows Ordium.Profile.OntoUML.rule.hasIdentityProvider_rule.AO__2.AG__1}
+      },
+      PM {hasName "K"},
+      PM {hasName "T"}
+    },
+    AO {hasName "sameIdentityProvider_rule", hasPredicate Ordium.Profile.OntoUML.rule.sameIdentityProvider,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.A, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.A},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.B, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.B, follows Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.AG__1},
+      AG {hasName "AG__3", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.K, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.K, follows Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.AG__2},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.rule.hasIdentityProvider,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.A, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.A},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.K, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.K, follows Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.AO__1.AG__1}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.rule.hasIdentityProvider, follows Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.B, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.B},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.K, fills Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.K, follows Ordium.Profile.OntoUML.rule.sameIdentityProvider_rule.AO__2.AG__1}
+      },
+      PM {hasName "A"},
+      PM {hasName "B"},
+      PM {hasName "K"}
+    },
+    AO {hasName "binOver_commonIdentityProvider", hasPredicate Ordium.Profile.OntoUML.rule.binOverCase,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source},
+      AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AG__1},
+      AG {hasName "AG__3", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.K, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.K, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AG__2},
+      AG {hasName "AG__4", bindsTo Ordium.Profile.OntoUML.DiagnosticReason.commonIdentityProvider, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AG__3},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target}
+      },
+      AO {hasName "AO__3", isExplicit false, hasPredicate Ordium.Core.rule.neq, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__3.AG__1}
+      },
+      AO {hasName "AO__4", hasPredicate Ordium.Profile.OntoUML.rule.sameIdentityProvider, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__3,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__4.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.K, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.K, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__4.AG__2}
+      },
+      AO {hasName "AO__5", hasPredicate Ordium.Profile.OntoUML.rule.explicitlyDisjoint, isNegated true, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__4,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Source},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, fills Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.Target, follows Ordium.Profile.OntoUML.rule.binOver_commonIdentityProvider.AO__5.AG__1}
+      },
+      PM {hasName "K"},
+      PM {hasName "Source"},
+      PM {hasName "Target"}
+    },
+    AO {hasName "warn_bin_over_case_rule", hasPredicate Ordium.Profile.OntoUML.rule.warn_bin_over_case,
+      AG {hasName "relation", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.R, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.R},
+      AG {hasName "firstEndpointType", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End1, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End1, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.relation},
+      AG {hasName "secondEndpointType", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End2, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End2, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.firstEndpointType},
+      AG {hasName "support", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Support, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Support, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.secondEndpointType},
+      AG {hasName "reason", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Reason, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Reason, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.support},
+      AO {hasName "AO__1", hasPredicate Ordium.Core.Relationship.rule.relationEndPair,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.R, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.R},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End1, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End1, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.AO__1.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End2, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End2, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.AO__1.AG__2}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.OntoUML.rule.binOverCase, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End1, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End1},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End2, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.End2, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.AO__2.AG__1},
+        AG {hasName "AG__3", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Support, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Support, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.AO__2.AG__2},
+        AG {hasName "AG__4", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Reason, fills Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.Reason, follows Ordium.Profile.OntoUML.rule.warn_bin_over_case_rule.AO__2.AG__3}
+      },
+      PM {hasName "End1"},
+      PM {hasName "End2"},
+      PM {hasName "R"},
+      PM {hasName "Reason"},
+      PM {hasName "Support"}
+    },
+    AO {hasName "warn_bin_over_witness_rule", hasPredicate Ordium.Profile.OntoUML.rule.warn_bin_over_witness,
+      AG {hasName "relation", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.R, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.R},
+      AG {hasName "firstEndpointType", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End1, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End1, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.relation},
+      AG {hasName "secondEndpointType", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End2, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End2, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.firstEndpointType},
+      AG {hasName "individualWitness", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.X, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.X, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.secondEndpointType},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.rule.warn_bin_over_case,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.R, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.R},
+        AG {hasName "AG__2", follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__1.AG__1, bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End1, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End1},
+        AG {hasName "AG__3", follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__1.AG__2, bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End2, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End2},
+        AG {hasName "AG__4", follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__1.AG__3, bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.CaseSupport, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.CaseSupport},
+        AG {hasName "AG__5", follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__1.AG__4, bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.CaseReason, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.CaseReason}
+      },
+      AO {hasName "AO__2", hasPredicate Ordium.Profile.LML.rule.iofPlus, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__1,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.X, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End1, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End1, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__2.AG__1}
+      },
+      AO {hasName "AO__3", hasPredicate Ordium.Profile.LML.rule.iofPlus, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__2,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.X, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.X},
+        AG {hasName "AG__2", bindsTo Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End2, fills Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.End2, follows Ordium.Profile.OntoUML.rule.warn_bin_over_witness_rule.AO__3.AG__1}
+      },
+      PM {hasName "End1"},
+      PM {hasName "End2"},
+      PM {hasName "R"},
+      PM {hasName "X"},
+      PM {hasName "CaseSupport", isExistential true},
+      PM {hasName "CaseReason", isExistential true}
+    },
+    AO {hasName "forbiddenKindAncestorTag_sortal", hasPredicate Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag,
+      AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag_sortal.Tag, fills Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag_sortal.Tag},
+      AO {hasName "AO__1", hasPredicate Ordium.Profile.OntoUML.ClassFamily.sortal,
+        AG {hasName "AG__1", bindsTo Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag_sortal.Tag, fills Ordium.Profile.OntoUML.rule.forbiddenKindAncestorTag_sortal.Tag}
+      },
+      PM {hasName "Tag"}
+    }
   }
 }
