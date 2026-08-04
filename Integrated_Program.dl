@@ -440,7 +440,7 @@ refersTo(<Ordium.Domain.Violation_Seeded_Model.SecondOT.ResearcherTypeByContract
 refersTo(<Ordium.Domain.Violation_Seeded_Model.SecondOT.ResearcherTypeByDoctoralStatus.partitions_Researcher>, <Ordium.Domain.Violation_Seeded_Model.FirstOT.Researcher>) .
 
 % ============================================================================
-% ii) Required rules from the PAMoLa core clade — 11 of 93
+% ii) Rules from the PAMoLa core clade — 13
 % ============================================================================
 Categorisation(?X) :- hasLinguisticType(?X, Categorisation) .
 categorisationGeneral(?C, ?X) :- Categorisation(?C), Intercalation(?I), hasCustodian(?I, ?C), isGeneralisation(?I, true), hasRelatum(?I, ?X) .
@@ -453,57 +453,63 @@ markedRef(?X, ?Tag, ?Target) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Ta
 marked(?X, ?Tag) :- Marker(?M), hasCustodian(?M, ?X), hasTag(?M, ?Tag) .
 Participation(?X) :- hasLinguisticType(?X, Participation) .
 Relationship(?X) :- hasLinguisticType(?X, Relationship) .
+endType(?R, ?P, ?T) :- Relationship(?R), Participation(?P), hasCustodian(?P, ?R), hasRelatum(?P, ?T) .
+relationEndPair(?R, ?End1, ?End2) :- endType(?R, ?P1, ?End1), endType(?R, ?P2, ?End2), ?P1 != ?P2 .
 
 % ============================================================================
-% iii) Required rules from the LML profile — 2 of 7
+% iii) Rules from the LML profile — 12
 % ============================================================================
 effectivePotency(?X, ?P) :- Clabject(?X), hasPotency(?X, ?P) .
+effectivePotency(?X, 0) :- Clabject(?X), ~hasPotency(?X, _) .
 violation(?X, potencyStep) :- hasDeclaredType(?X, ?T), effectivePotency(?X, ?P), effectivePotency(?T, ?Q), ?P != ?Q - 1 .
-
-% ============================================================================
-% iv) Required facts from the OntoUML profile — 3 of 97
-% ============================================================================
-sortal(<Ordium.Profile.OntoUML.ClassStereotype.kind>) .
-sortal(<Ordium.Profile.OntoUML.ClassStereotype.role>) .
-identityProvider(<Ordium.Profile.OntoUML.ClassStereotype.kind>) .
-
-% ============================================================================
-% v) Required case-specific semantic and diagnostic rules — 34 of 64
-% ============================================================================
 specialises(?Sub, ?Base) :- categorisationGeneral(?C, ?Base), categorisationSpecial(?C, ?Sub) .
 specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Base) .
 specialisesPlus(?Sub, ?Base) :- specialises(?Sub, ?Mid), specialisesPlus(?Mid, ?Base) .
+subtypeOrSame(?X, ?X) :- Clabject(?X) .
 subtypeOrSame(?Sub, ?Base) :- specialisesPlus(?Sub, ?Base) .
 iof(?X, ?T) :- hasDeclaredType(?X, ?T) .
-iof(?X, ?T) :- markedRef(?X, <Ordium.Profile.OntoUML.RelationStereotype.instantiation>, ?T) .
 iofPlus(?X, ?T) :- iof(?X, ?T) .
 iofPlus(?X, ?Super) :- iof(?X, ?T), specialisesPlus(?T, ?Super) .
 err_non_adjacent_iof(?X, ?T, ?PX, ?PT) :- iof(?X, ?T), effectivePotency(?X, ?PX), effectivePotency(?T, ?PT), ?PT != ?PX + 1 .
-ontoKind(?T) :- marked(?T, <Ordium.Profile.OntoUML.ClassStereotype.kind>) .
-identityProvider(?T) :- marked(?T, ?Tag), identityProvider(?Tag) .
-sortal(?T) :- marked(?T, ?Tag), sortal(?Tag) .
-err_kind_bad_ancestor(?Kind, ?Ancestor, ?Tag) :- ontoKind(?Kind), specialisesPlus(?Kind, ?Ancestor), marked(?Ancestor, ?Tag), forbiddenKindAncestorTag(?Tag) .
-endType(?R, ?P, ?T) :- Relationship(?R), Participation(?P), hasCustodian(?P, ?R), hasRelatum(?P, ?T) .
-relationEndPair(?R, ?End1, ?End2) :- endType(?R, ?P1, ?End1), endType(?R, ?P2, ?End2), ?P1 != ?P2 .
-hasIdentityProvider(?T, ?K) :- identityProvider(?K), subtypeOrSame(?T, ?K) .
-sameIdentityProvider(?A, ?B, ?K) :- hasIdentityProvider(?A, ?K), hasIdentityProvider(?B, ?K) .
-binOverCase(?Source, ?Target, ?K, <Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.commonIdentityProvider>) :- sortal(?Source), sortal(?Target), ?Source != ?Target, sameIdentityProvider(?Source, ?Target, ?K), ~explicitlyDisjoint(?Source, ?Target) .
-warn_bin_over_case(?R, ?End1, ?End2, ?Support, ?Reason) :- relationEndPair(?R, ?End1, ?End2), binOverCase(?End1, ?End2, ?Support, ?Reason) .
-warn_bin_over_witness(?R, ?End1, ?End2, ?X) :- warn_bin_over_case(?R, ?End1, ?End2, _, _), iofPlus(?X, ?End1), iofPlus(?X, ?End2) .
-partitions(?Partition, ?Base) :- markedRef(?Partition, <Ordium.Profile.MLT.PowertypeRelation.partitions>, ?Base) .
+
+% ============================================================================
+% iv) Rules from the MLT profile — 15
+% ============================================================================
+powertypeOf(?Powertype, ?Base) :- markedRef(?Powertype, <Ordium.Profile.MLT.PowertypeRelation.powertypeOf>, ?Base) .
 categorizes(?Categorizer, ?Base) :- markedRef(?Categorizer, <Ordium.Profile.MLT.PowertypeRelation.categorizes>, ?Base) .
+partitions(?Partition, ?Base) :- markedRef(?Partition, <Ordium.Profile.MLT.PowertypeRelation.partitions>, ?Base) .
+categorizes(?Partition, ?Base) :- partitions(?Partition, ?Base) .
 partitionMember(?Partition, ?Member) :- partitions(?Partition, ?Base), iof(?Member, ?Partition), specialisesPlus(?Member, ?Base) .
 baseIndividual(?X, ?Base) :- effectivePotency(?X, 0), iofPlus(?X, ?Base) .
 coveredBy(?Partition, ?X) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), partitionBranch(?Partition, ?Member), iofPlus(?X, ?Member) .
 err_partition_bad_member(?Partition, ?Base, ?Member) :- partitions(?Partition, ?Base), iof(?Member, ?Partition), ~specialisesPlus(?Member, ?Base) .
 err_partition_missing(?Partition, ?Base, ?X) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), ~coveredBy(?Partition, ?X) .
 err_partition_overlap(?Partition, ?X, ?M1, ?M2) :- partitions(?Partition, ?Base), baseIndividual(?X, ?Base), partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, iofPlus(?X, ?M1), iofPlus(?X, ?M2) .
-err_partition_subtype_overlap(?Partition, ?BadType, ?M1, ?M2) :- partitions(?Partition, ?Base), partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, specialisesPlus(?BadType, ?M1), specialisesPlus(?BadType, ?M2) .
+err_partition_subtype_overlap(?Partition, ?BadType, ?M1, ?M2) :- partitionBranch(?Partition, ?M1), partitionBranch(?Partition, ?M2), ?M1 != ?M2, specialisesPlus(?BadType, ?M1), specialisesPlus(?BadType, ?M2) .
 err_partition_specialization(?P1, ?P2, ?Base) :- partitions(?P1, ?Base), partitions(?P2, ?Base), ?P1 != ?P2, specialisesPlus(?P1, ?P2) .
 err_categorizer_bad_member(?Categorizer, ?Base, ?Member) :- categorizes(?Categorizer, ?Base), iof(?Member, ?Categorizer), ~specialisesPlus(?Member, ?Base) .
-forbiddenKindAncestorTag(?Tag) :- sortal(?Tag) .
 nestedPartitionMember(?Partition, ?Member) :- partitionMember(?Partition, ?Member), partitionMember(?Partition, ?SuperMember), ?Member != ?SuperMember, specialisesPlus(?Member, ?SuperMember) .
 partitionBranch(?Partition, ?Member) :- partitionMember(?Partition, ?Member), ~nestedPartitionMember(?Partition, ?Member) .
+
+% ============================================================================
+% v) Relevant facts and rules from the OntoUML profile — 16
+% ============================================================================
+sortal(<Ordium.Profile.OntoUML.ClassStereotype.kind>) .
+sortal(<Ordium.Profile.OntoUML.ClassStereotype.role>) .
+identityProvider(<Ordium.Profile.OntoUML.ClassStereotype.kind>) .
+iof(?X, ?T) :- markedRef(?X, <Ordium.Profile.OntoUML.RelationStereotype.instantiation>, ?T) .
+ontoKind(?T) :- marked(?T, <Ordium.Profile.OntoUML.ClassStereotype.kind>) .
+identityProvider(?T) :- marked(?T, ?Tag), identityProvider(?Tag) .
+sortal(?T) :- marked(?T, ?Tag), sortal(?Tag) .
+err_kind_bad_ancestor(?Kind, ?Ancestor, ?Tag) :- ontoKind(?Kind), specialisesPlus(?Kind, ?Ancestor), marked(?Ancestor, ?Tag), forbiddenKindAncestorTag(?Tag) .
+hasIdentityProvider(?T, ?K) :- identityProvider(?K), subtypeOrSame(?T, ?K) .
+sameIdentityProvider(?A, ?B, ?K) :- hasIdentityProvider(?A, ?K), hasIdentityProvider(?B, ?K) .
+coSpecializedIn(?C, ?A, ?B) :- categorisationSpecial(?C, ?A), categorisationSpecial(?C, ?B), ?A != ?B .
+explicitlyDisjoint(?A, ?B) :- Categorisation(?C), isDisjoint(?C, true), coSpecializedIn(?C, ?A, ?B) .
+binOverCase(?Source, ?Target, ?K, <Ordium.Library.ER2026OntoUMLMLTDiagnostics.DiagnosticReason.commonIdentityProvider>) :- sortal(?Source), sortal(?Target), ?Source != ?Target, sameIdentityProvider(?Source, ?Target, ?K), ~explicitlyDisjoint(?Source, ?Target) .
+warn_bin_over_case(?R, ?End1, ?End2, ?Support, ?Reason) :- relationEndPair(?R, ?End1, ?End2), binOverCase(?End1, ?End2, ?Support, ?Reason) .
+warn_bin_over_witness(?R, ?End1, ?End2, ?X) :- warn_bin_over_case(?R, ?End1, ?End2, _, _), iofPlus(?X, ?End1), iofPlus(?X, ?End2) .
+forbiddenKindAncestorTag(?Tag) :- sortal(?Tag) .
 
 % ---------------------------------------------------------------------------
 % Exports: the predicates that contain the 17 raw findings for this model.
@@ -519,3 +525,5 @@ partitionBranch(?Partition, ?Member) :- partitionMember(?Partition, ?Member), ~n
 @export warn_bin_over_case :- tsv{} .
 @export warn_bin_over_witness :- tsv{} .
 @export violation :- tsv{} .
+
+
